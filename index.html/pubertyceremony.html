@@ -1,179 +1,999 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Puberty Ceremony Packages - Tharunam</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: #FFEBEE; color: #333; overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Puberty Ceremony Packages — Silver, Gold, Platinum & Diamond | Tharunam Events</title>
 
-        /* NAVBAR - Balanced with Index.html */
-        .navbar {
-            background: #8d0809; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px 0 0;
-            height: 80px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant:ital,wght@0,500;1,400;1,500&display=swap" rel="stylesheet">
 
-        .logo {
-            height: 100%;
-            width: 450px; 
-            display: flex;
-            overflow: hidden;
-        }
+<style>
 
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            display: block;
-        }
+/* =========================================
+   TOKENS — identical to index.html / birthdaypackages.html
+   ========================================= */
+:root{
+  --maroon-950:#2a0e0f;
+  --maroon-900:#4a0d0e;
+  --maroon-700:#8d0809;
+  --maroon-600:#a5100f;
+  --maroon-500:#c1201d;
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            margin-right: 50px;
-        }
+  --cream:#FBF5F2;
+  --blush:#F3E2DE;
+  --ink:#2a1c1c;
+  --ink-soft:#5c4747;
+  --white:#ffffff;
+  --line:rgba(141,8,9,0.14);
 
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            border: 1px solid white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
+  --font-ui:'Poppins', sans-serif;
+  --font-display:'Cinzel', serif;
+  --font-accent:'Cormorant', serif;
 
-        .nav-links li a:hover { background: white; color: #8d0809; }
-
-        /* MAIN CONTENT */
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; text-align: center; }
-        h1 { color: #8d0809; margin-bottom: 40px; font-size: 2.5rem; }
-
-        /* 2x2 GRID */
-        .package-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .category-box {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .category-box:hover { transform: translateY(-10px); }
-
-        .category-box img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .category-info { padding: 25px; text-align: center; }
-        .category-info h2 { font-size: 1.6rem; margin-bottom: 10px; }
-        
-        /* Tier Colors */
-        .silver h2 { color: #757575; }
-        .gold h2 { color: #D4AF37; }
-        .platinum h2 { color: #506266; }
-        .diamond h2 { color: #00ACC1; }
-
-        .book-now {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 25px;
-            background: #8d0809;
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .navbar { height: auto; flex-direction: column; padding: 10px 0; }
-            .logo { width: 100%; height: 60px; }
-            .nav-links { margin-right: 0; margin-top: 10px; }
-            .package-grid { grid-template-columns: 1fr; }
-        }
-        .category-info p {
-    font-size: 1.4rem;  /* Increases the size (default is usually 1rem) */
-    font-weight: 600;   /* Makes it slightly bolder/clearer */
-    color: #444;        /* Sets a sharp, professional color */
-    margin-bottom: 10px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
 }
-    </style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
+}
+
+body{
+  font-family:var(--font-ui);
+  font-size:1rem;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--cream);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--maroon-500);outline-offset:3px;border-radius:2px;}
+.icon{width:20px;height:20px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease), transform 0.7s var(--ease);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-stagger.visible > *{transition-delay:calc(var(--i,0) * 90ms);}
+
+/* =========================================
+   NAVBAR — reused from index.html
+   ========================================= */
+.navbar{
+  background:var(--maroon-950);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 clamp(20px,4vw,50px) 0 0;height:82px;
+  position:sticky;top:0;z-index:1000;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06);
+  transition:height 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.navbar.scrolled{height:64px;box-shadow:0 10px 30px rgba(20,4,4,0.25);}
+
+.logo{height:100%;max-width:250px;display:flex;align-items:center;padding-left:22px;overflow:hidden;flex-shrink:0;}
+.logo a{display:flex;align-items:center;height:100%;width:100%;}
+.logo img{height:68%;width:auto;max-width:100%;object-fit:contain;transition:height 0.3s var(--ease);}
+.navbar.scrolled .logo img{height:58%;}
+
+.nav-links{display:flex;align-items:center;list-style:none;gap:38px;}
+.nav-links > li{position:relative;color:var(--blush);font-weight:500;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;}
+.nav-links > li > a{color:var(--white);text-decoration:none;padding:6px 0;position:relative;}
+.nav-links > li > a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--maroon-500);transition:right 0.3s var(--ease);}
+.nav-links > li > a:hover::after,.nav-links > li > a:focus-visible::after{right:0;}
+
+.nav-links li a.back-btn{
+  display:inline-flex;align-items:center;gap:8px;color:var(--white);text-decoration:none;
+  font-weight:500;border:1px solid rgba(255,255,255,0.35);padding:8px 20px;border-radius:25px;
+  font-size:0.85rem;letter-spacing:0.03em;text-transform:none;
+  transition:background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.25s var(--ease-spring);
+}
+.nav-links li a.back-btn:hover,.nav-links li a.back-btn:focus-visible{background:var(--maroon-700);border-color:var(--maroon-700);transform:translateY(-2px);}
+
+#locationMenu,#contactMenu{color:var(--white);display:flex;align-items:center;gap:6px;padding:6px 0;}
+.caret{display:inline-block;font-size:0.7em;transition:transform 0.3s var(--ease);}
+.dropdown-open .caret{transform:rotate(180deg);}
+
+.dropdown-panel{
+  position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);
+  background:var(--white);border-radius:4px;border:1px solid var(--line);
+  box-shadow:0 18px 40px rgba(42,14,15,0.18);padding:18px 22px;
+  display:none;opacity:0;z-index:1001;color:var(--ink);min-width:230px;white-space:nowrap;
+  transition:opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+#contactMenu .dropdown-panel{left:auto;right:0;transform:translateY(6px);}
+.dropdown-open .dropdown-panel{display:block;}
+.dropdown-panel.show{opacity:1;transform:translateX(-50%) translateY(0);}
+#contactMenu .dropdown-panel.show{transform:translateY(0);}
+
+.dropdown-panel ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,auto);gap:9px 24px;}
+.dropdown-panel li{display:flex;align-items:center;gap:7px;color:var(--ink-soft);font-size:0.92rem;cursor:default;}
+.dropdown-panel li .icon{width:14px;height:14px;color:var(--maroon-600);}
+.dropdown-panel a.contact-row{display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:0.95rem;text-decoration:none;padding:3px 0;transition:color 0.2s var(--ease);}
+.dropdown-panel a.contact-row:hover{color:var(--maroon-700);}
+.dropdown-panel a.contact-row .icon{color:var(--maroon-600);}
+
+.menu-toggle{display:none;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px;width:44px;height:44px;flex-shrink:0;border-radius:6px;transition:background 0.25s var(--ease);}
+.menu-toggle:hover,.menu-toggle:focus-visible{background:rgba(255,255,255,0.08);}
+.menu-toggle .bar{width:22px;height:2px;background-color:var(--white);border-radius:2px;transition:0.3s var(--ease);}
+
+/* =========================================
+   PAGE HERO
+   ========================================= */
+.page-hero{
+  padding:clamp(48px,7vw,80px) clamp(20px,5vw,50px) clamp(28px,4vw,40px);
+  max-width:1100px;margin:0 auto;text-align:center;
+}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:0.82rem;color:var(--ink-soft);margin-bottom:20px;}
+.breadcrumb a{color:var(--maroon-700);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{text-decoration:underline;}
+.hero-eyebrow{font-family:var(--font-display);font-size:0.72rem;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:var(--maroon-600);margin-bottom:18px;}
+.page-hero h1{font-weight:700;font-size:clamp(2rem,4.4vw,3rem);line-height:1.15;letter-spacing:-0.01em;color:var(--maroon-950);}
+.page-hero .hero-lede{margin:20px auto 0;color:var(--ink-soft);font-size:1.05rem;max-width:56ch;line-height:1.75;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:0.9rem;
+  letter-spacing:0.02em;padding:14px 26px;border-radius:4px;cursor:pointer;text-decoration:none;border:1px solid transparent;
+  transition:transform 0.25s var(--ease-spring), box-shadow 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease);
+}
+.btn:active{transform:scale(0.97);}
+.btn-primary{background:var(--maroon-700);color:var(--white);box-shadow:0 10px 24px rgba(141,8,9,0.22);}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--maroon-600);transform:translateY(-2px);box-shadow:0 16px 30px rgba(141,8,9,0.3);}
+.btn-ghost{background:transparent;color:var(--maroon-700);border-color:var(--maroon-700);}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--maroon-700);color:var(--white);transform:translateY(-2px);}
+.btn .icon{width:16px;height:16px;transition:transform 0.3s var(--ease);}
+.btn:hover .icon{transform:translateX(3px);}
+.btn-small{padding:10px 20px;font-size:0.8rem;}
+
+/* =========================================
+   TIER TAB BAR — one switcher, four panels
+   instead of four separate pages
+   ========================================= */
+.tier-tab-bar{
+  max-width:640px;margin:0 auto;display:flex;
+  background:var(--blush);border-radius:50px;padding:6px;gap:4px;
+  position:sticky;top:calc(82px + 14px);z-index:90;
+  box-shadow:0 10px 26px rgba(42,14,15,0.1);
+}
+.navbar.scrolled ~ * .tier-tab-bar{top:calc(64px + 14px);}
+.tier-tab{
+  flex:1;text-align:center;padding:12px 14px;border-radius:50px;
+  font-weight:600;font-size:0.82rem;letter-spacing:0.02em;color:var(--maroon-700);
+  cursor:pointer;transition:background 0.3s var(--ease), color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.tier-tab.active{background:var(--maroon-700);color:var(--white);box-shadow:0 10px 22px rgba(141,8,9,0.28);}
+.tier-tab:hover:not(.active){background:rgba(255,255,255,0.6);}
+
+@media(max-width:600px){
+  .tier-tab-bar{border-radius:16px;flex-wrap:wrap;position:static;}
+  .tier-tab{flex:1 1 40%;}
+}
+
+/* =========================================
+   TIER PANELS
+   ========================================= */
+.tier-panel{display:none;padding-top:clamp(40px,6vw,64px);}
+.tier-panel.active{display:block;animation:panelIn 0.5s var(--ease);}
+@keyframes panelIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+.tier-detail-hero{
+  max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,50px) clamp(50px,6vw,70px);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(30px,5vw,50px);align-items:start;
+}
+.tier-detail-hero .img-wrap{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 26px 50px rgba(42,14,15,0.18);}
+.tier-detail-hero .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3;}
+.tier-badge{
+  position:absolute;top:18px;left:18px;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  width:56px;height:56px;border-radius:50%;color:var(--white);
+  box-shadow:0 8px 18px rgba(42,14,15,0.35);border:1.5px solid rgba(255,255,255,0.6);
+}
+.tier-badge .icon{width:26px;height:26px;stroke-width:1.5;}
+[data-tier="silver"] .tier-badge{background:linear-gradient(145deg,#9a7d78,#6b504c);}
+[data-tier="gold"] .tier-badge{background:linear-gradient(145deg,var(--maroon-600),var(--maroon-900));}
+[data-tier="platinum"] .tier-badge{background:linear-gradient(145deg,var(--maroon-700),var(--maroon-950));}
+[data-tier="diamond"] .tier-badge{background:linear-gradient(145deg,var(--maroon-500),var(--maroon-950));}
+
+.tier-detail-copy .tier-tagline{font-family:var(--font-display);font-size:0.72rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--maroon-600);}
+.tier-detail-copy h2{font-weight:700;font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--maroon-950);margin-top:12px;}
+.tier-detail-copy .price{font-family:var(--font-ui);color:var(--maroon-700);font-weight:700;font-size:1.15rem;letter-spacing:0.02em;margin-top:12px;}
+.tier-detail-copy .intro{color:var(--ink-soft);font-size:0.98rem;margin-top:16px;line-height:1.75;}
+
+.include-list{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:11px;}
+.include-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.93rem;color:var(--ink-soft);}
+.include-list li .icon{width:16px;height:16px;color:var(--maroon-600);margin-top:2px;stroke-width:2;flex-shrink:0;}
+
+.tier-detail-copy .btn{margin-top:28px;}
+
+/* =========================================
+   DETAIL BLOCKS
+   ========================================= */
+.detail-blocks{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,50px) clamp(60px,7vw,90px);}
+.detail-block{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  padding:clamp(24px,3vw,32px);margin-bottom:24px;box-shadow:0 6px 20px rgba(42,14,15,0.05);
+}
+.detail-block h3{font-weight:600;font-size:1.15rem;color:var(--maroon-950);padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--line);}
+.detail-block p{color:var(--ink-soft);font-size:0.95rem;line-height:1.75;}
+
+.gallery-scroll-container{display:flex;overflow-x:auto;gap:18px;padding:4px 0 12px;scroll-behavior:smooth;}
+.gallery-scroll-container::-webkit-scrollbar{height:7px;}
+.gallery-scroll-container::-webkit-scrollbar-track{background:var(--blush);border-radius:10px;}
+.gallery-scroll-container::-webkit-scrollbar-thumb{background:var(--maroon-600);border-radius:10px;}
+.gallery-item{flex:0 0 240px;height:180px;border-radius:8px;overflow:hidden;cursor:pointer;box-shadow:0 4px 12px rgba(42,14,15,0.1);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s var(--ease);}
+.gallery-item:hover img{transform:scale(1.08);}
+
+/* =========================================
+   HELP STRIP
+   ========================================= */
+.help-strip{
+  background:var(--blush);border-radius:10px;padding:34px clamp(24px,4vw,48px);
+  max-width:1200px;margin:0 auto clamp(70px,8vw,100px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.help-strip h3{font-weight:600;font-size:1.15rem;color:var(--maroon-950);}
+.help-strip p{color:var(--ink-soft);font-size:0.92rem;margin-top:4px;}
+.help-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.help-actions a{
+  display:inline-flex;align-items:center;gap:9px;color:var(--maroon-700);text-decoration:none;
+  font-size:0.9rem;font-weight:600;border:1px solid var(--maroon-700);padding:11px 20px;border-radius:6px;
+  transition:background 0.25s var(--ease), color 0.25s var(--ease);
+}
+.help-actions a:hover,.help-actions a:focus-visible{background:var(--maroon-700);color:var(--white);}
+.help-actions .icon{width:17px;height:17px;}
+
+/* =========================================
+   SHARED BOOKING MODAL
+   ========================================= */
+.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(42,14,15,0.55);overflow-y:auto;}
+.modal-content{background:var(--white);margin:5% auto;padding:34px;border-radius:10px;width:90%;max-width:500px;position:relative;}
+.close-btn{position:absolute;right:20px;top:14px;font-size:1.7rem;cursor:pointer;color:var(--maroon-700);}
+.modal-content h2{font-weight:700;font-size:1.4rem;color:var(--maroon-950);text-align:center;margin-bottom:6px;}
+.modal-tier-label{text-align:center;font-size:0.85rem;color:var(--maroon-600);font-weight:600;margin-bottom:22px;}
+.form-group{margin-bottom:16px;display:flex;flex-direction:column;gap:6px;}
+.form-group label{font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+.form-group input,.form-group textarea{
+  padding:11px 13px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-ui);
+  font-size:0.94rem;background:var(--cream);color:var(--ink);transition:border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--maroon-700);background:var(--white);box-shadow:0 0 0 3px rgba(141,8,9,0.08);}
+.submit-btn{
+  width:100%;padding:13px;background:var(--maroon-700);color:var(--white);border:none;border-radius:5px;
+  font-weight:600;font-size:0.9rem;letter-spacing:0.03em;cursor:pointer;transition:background 0.3s var(--ease);
+}
+.submit-btn:hover{background:var(--maroon-600);}
+.modal-contact-note{text-align:center;font-size:0.85rem;color:var(--ink-soft);margin-top:18px;padding-top:18px;border-top:1px solid var(--line);}
+
+/* =========================================
+   SHARED IMAGE VIEWER
+   ========================================= */
+.image-viewer{display:none;position:fixed;z-index:3000;top:0;left:0;width:100%;height:100%;background:rgba(10,4,4,0.95);align-items:center;justify-content:center;}
+.image-viewer img{max-width:90%;max-height:85%;border-radius:10px;animation:zoomIn 0.3s ease;}
+@keyframes zoomIn{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+.close-viewer{position:absolute;top:24px;right:34px;font-size:2.4rem;color:var(--white);cursor:pointer;}
+.nav-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:2.6rem;color:var(--white);cursor:pointer;padding:10px;user-select:none;background:none;border:none;}
+.nav-arrow.left{left:24px;}
+.nav-arrow.right{right:24px;}
+
+/* =========================================
+   FOOTER + FAB — reused from index.html
+   ========================================= */
+footer{background:var(--maroon-950);color:rgba(255,255,255,0.65);padding:clamp(56px,7vw,80px) clamp(20px,5vw,50px) 0;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;padding-bottom:52px;}
+.footer-brand .logo-mark{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.footer-brand .logo-mark img{height:46px;width:auto;object-fit:contain;}
+.footer-tagline{font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.55);max-width:36ch;}
+.footer-social{display:flex;gap:10px;margin-top:24px;}
+.footer-social a{
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);
+  display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);
+  transition:border-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease-spring), background 0.25s var(--ease);
+}
+.footer-social a:hover,.footer-social a:focus-visible{border-color:var(--maroon-500);color:var(--white);background:var(--maroon-700);transform:translateY(-3px);}
+.footer-social .icon{width:17px;height:17px;}
+.footer-col h4{font-size:0.74rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.42);margin-bottom:20px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.footer-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.95rem;position:relative;width:fit-content;transition:color 0.25s var(--ease);}
+.footer-links a::after{content:'';position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:var(--maroon-500);transition:right 0.3s var(--ease);}
+.footer-links a:hover,.footer-links a:focus-visible{color:var(--white);}
+.footer-links a:hover::after,.footer-links a:focus-visible::after{right:0;}
+.footer-contact-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;color:rgba(255,255,255,0.78);font-size:0.92rem;text-decoration:none;line-height:1.5;transition:color 0.25s var(--ease);}
+.footer-contact-row:hover,.footer-contact-row:focus-visible{color:var(--white);}
+.footer-contact-row .icon{width:17px;height:17px;color:var(--maroon-500);flex-shrink:0;margin-top:2px;}
+.footer-whatsapp-btn{
+  display:inline-flex;align-items:center;gap:9px;margin-top:6px;background:#25D366;color:#0b2b18;font-weight:600;font-size:0.88rem;
+  padding:11px 20px;border-radius:6px;text-decoration:none;transition:transform 0.25s var(--ease-spring), box-shadow 0.3s var(--ease);
+}
+.footer-whatsapp-btn:hover,.footer-whatsapp-btn:focus-visible{transform:translateY(-2px);box-shadow:0 12px 24px rgba(37,211,102,0.28);}
+.footer-whatsapp-btn .icon{width:17px;height:17px;stroke-width:2;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:22px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:0.82rem;color:rgba(255,255,255,0.42);}
+.footer-cities{display:flex;gap:8px;flex-wrap:wrap;}
+.footer-cities span:not(:last-child)::after{content:'\00B7';margin-left:8px;color:rgba(255,255,255,0.3);}
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr;gap:38px;}.footer-bottom{flex-direction:column;text-align:center;justify-content:center;}}
+
+.fab{
+  position:fixed;right:20px;bottom:20px;z-index:900;display:inline-flex;align-items:center;gap:9px;
+  background:#25D366;color:#0b2b18;padding:14px 20px 14px 15px;border-radius:999px;
+  box-shadow:0 12px 28px rgba(18,140,73,0.4);text-decoration:none;font-weight:600;font-size:0.88rem;
+  transition:transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease);
+}
+.fab:hover,.fab:focus-visible{transform:scale(1.05) translateY(-2px);box-shadow:0 16px 34px rgba(18,140,73,0.48);}
+.fab .icon{width:22px;height:22px;stroke-width:0;fill:currentColor;}
+.fab::before{content:'';position:absolute;inset:0;border-radius:999px;border:2px solid #25D366;animation:fabPulse 2.4s var(--ease) infinite;}
+.fab-text{white-space:nowrap;}
+@keyframes fabPulse{0%{transform:scale(1);opacity:0.55;}100%{transform:scale(1.35);opacity:0;}}
+@media(max-width:480px){.fab-text{display:none;}.fab{padding:15px;}}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+@media(max-width:900px){
+  .tier-detail-hero{grid-template-columns:1fr;}
+  .help-strip{flex-direction:column;align-items:flex-start;text-align:left;}
+}
+@media(max-width:768px){
+  .navbar{padding:0 14px;height:66px;}
+  .menu-toggle{display:flex;z-index:2001;}
+  .nav-links{
+    position:fixed;right:-100%;top:0;height:100vh;width:min(78vw,300px);
+    background-color:var(--maroon-950);flex-direction:column;align-items:flex-start;
+    padding:90px 28px 28px;transition:right 0.4s var(--ease);z-index:2000;gap:6px;
+    overflow-y:auto;box-shadow:-10px 0 40px rgba(0,0,0,0.35);
+  }
+  .nav-links.active{right:0;}
+  .nav-links > li{width:100%;border-bottom:1px solid rgba(255,255,255,0.1);padding:14px 0;color:white;}
+  .nav-links li a.back-btn{border-color:rgba(255,255,255,0.35);width:100%;justify-content:center;}
+  .dropdown-panel{position:static;display:none;transform:none !important;opacity:1 !important;background:transparent;box-shadow:none;border:none;padding:10px 0 0 4px;width:100%;}
+  .dropdown-open .dropdown-panel{display:block;}
+  .dropdown-panel ul{grid-template-columns:1fr;}
+  .dropdown-panel li,.dropdown-panel a.contact-row{color:var(--blush);}
+  .menu-toggle.is-active .bar:nth-child(2){opacity:0;}
+  .menu-toggle.is-active .bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-toggle.is-active .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .logo{max-width:120px;padding-left:0;}
+  .logo img{height:56%;}
+}
+@media(max-width:380px){.logo{max-width:96px;}}
+
+</style>
 </head>
 <body>
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="logo">
-        <a href="index.html" style="width: 100%; height: 100%;">
-            <img src="images/final logo.png" alt="Tharunam Logo">
-        </a>
+        <a href="index.html"><img src="images/final logo.png" alt="Tharunam Events"></a>
     </div>
+
+    <div class="menu-toggle" id="mobile-menu" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </div>
+
     <ul class="nav-links">
-        <li><a href="index.html">← Back to Home</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li id="locationMenu" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+            Location <span class="caret">&#9662;</span>
+            <div class="dropdown-panel">
+                <ul>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Chennai</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Coimbatore</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Erode</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Pollachi</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Madurai</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Trichy</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Salem</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Pondicherry</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Tirunelveli</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Tiruppur</li>
+                </ul>
+            </div>
+        </li>
+        <li id="contactMenu" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+            Contact <span class="caret">&#9662;</span>
+            <div class="dropdown-panel">
+                <a class="contact-row" href="tel:+918778318394"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> +91 8778318394</a>
+                <a class="contact-row" href="mailto:tharunam2026@gmail.com"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> tharunam2026@gmail.com</a>
+            </div>
+        </li>
+        <li><a href="pubertyceremony.html" class="back-btn">&larr; Back to Puberty Ceremony</a></li>
     </ul>
 </nav>
 
-<div class="container">
-    <h1>Puberty Ceremony Packages</h1>
-    <div class="package-grid">
-        <div class="category-box silver">
-            <img src="pubertyimg/puberty silver.jpg" alt="Silver Puberty Ceremony">
-            <div class="category-info">
-                <h2>Silver Package</h2>
-                <p>150000 Onwards</p>
-                <a href="pubertysilver.html" class="book-now">Book Now</a>
-            </div>
-        </div>
+<section class="page-hero">
+  <div class="breadcrumb reveal"><a href="index.html">Home</a> / <a href="pubertyceremony.html">Puberty Ceremony</a> / Packages</div>
+  <div class="hero-eyebrow reveal">Puberty Ceremony Packages</div>
+  <h1 class="reveal">Every Tier, One Page.</h1>
+  <p class="hero-lede reveal">Silver through Diamond — compare décor, rituals, catering and photography side by side, then book your Manjal Neerattu Vizha straight from whichever tier fits.</p>
+</section>
 
-        <div class="category-box gold">
-            <img src="pubertyimg/puberty gold.png" alt="Gold Puberty Ceremony">
-            <div class="category-info">
-                <h2>Gold Package</h2>
-                <p>450000 Onwards</p>
-                <a href="pubertygold.html" class="book-now">Book Now</a>
-            </div>
-        </div>
-
-        <div class="category-box platinum">
-            <img src="pubertyimg/puberty platinum.png" alt="Platinum Puberty Ceremony">
-            <div class="category-info">
-                <h2>Platinum Package</h2>
-                <p>850000 Onwards</p>
-                <a href="pubertyplatinum.html" class="book-now">Book Now</a>
-            </div>
-        </div>
-
-        <div class="category-box diamond">
-            <img src="pubertyimg/puberty diamond.png" alt="Diamond Puberty Ceremony">
-            <div class="category-info">
-                <h2>Diamond Package</h2>
-                <p>1250000 Onwards</p>
-                <a href="pubertydiamond.html" class="book-now">Book Now</a>
-            </div>
-        </div>
-    </div>
+<div class="tier-tab-bar reveal" role="tablist" aria-label="Puberty ceremony package tiers">
+  <div class="tier-tab active" data-tab="silver" role="tab" aria-selected="true" tabindex="0">Silver</div>
+  <div class="tier-tab" data-tab="gold" role="tab" aria-selected="false" tabindex="0">Gold</div>
+  <div class="tier-tab" data-tab="platinum" role="tab" aria-selected="false" tabindex="0">Platinum</div>
+  <div class="tier-tab" data-tab="diamond" role="tab" aria-selected="false" tabindex="0">Diamond</div>
 </div>
 
-<footer style="background: #8d0809; color: white; text-align: center; padding: 20px; margin-top: 50px;">
-    © 2026 Tharunam Events. All Rights Reserved.
+<!-- ============================================================ SILVER -->
+<section class="tier-panel active" data-tier="silver" id="silver">
+
+  <div class="tier-detail-hero">
+    <div class="img-wrap">
+      <img src="pubertyimg/puberty silver.jpg" alt="Silver puberty ceremony decor">
+      <div class="tier-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M12 21c4-2.5 6-6 6-10a6 6 0 0 0-12 0c0 4 2 7.5 6 10Z"/><path d="M12 8v6"/></svg></div>
+    </div>
+    <div class="tier-detail-copy reveal">
+      <div class="tier-tagline">The Family Gathering</div>
+      <h2>Silver Puberty Package</h2>
+      <div class="price">&#8377;1,50,000 Package</div>
+      <p class="intro">Our Silver Puberty Ceremony package is designed to celebrate the traditional Manjal Neerattu Vizha with elegance and comfort. This package includes beautifully arranged stage decor, professional makeup services, photography coverage, and delicious catering for guests. Every element is carefully planned to ensure the ceremony becomes a memorable celebration for family and loved ones.</p>
+      <ul class="include-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Elegant Stage Decoration</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Elegent Invitation Card</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Professional Makeup Artist &amp; Hairstyling</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Professional Photography Coverage</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Traditional South Indian Catering</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Event Setup &amp; Coordination</li>
+      </ul>
+      <button class="btn btn-primary" data-book-btn="Silver">Book Now
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-blocks">
+    <div class="detail-block reveal">
+      <h3>Gallery</h3>
+      <div class="gallery-scroll-container">
+        <div class="gallery-item"><img src="pubertyimg/ps1.jpg" alt="Silver puberty gallery 1"></div>
+        <div class="gallery-item"><img src="pubertyimg/ps2.png" alt="Silver puberty gallery 2"></div>
+        <div class="gallery-item"><img src="pubertyimg/ps5.jpg" alt="Silver puberty gallery 3"></div>
+        <div class="gallery-item"><img src="pubertyimg/ps6.jpg" alt="Silver puberty gallery 4"></div>
+        <div class="gallery-item"><img src="pubertyimg/ps7.jpg" alt="Silver puberty gallery 5"></div>
+        <div class="gallery-item"><img src="pubertyimg/ps3.jpg" alt="Silver puberty gallery 6"></div>
+        <div class="gallery-item"><img src="pubertyimg/ps4.jpg" alt="Silver puberty gallery 7"></div>
+        <div class="gallery-item"><img src="party/invitation.jpg" alt="Silver puberty invitation"></div>
+        <div class="gallery-item"><img src="epimage/photographer.jpg" alt="Silver puberty photographer"></div>
+      </div>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Elegant Stage Decoration</h3>
+      <p>A beautifully designed ceremonial stage featuring decorative drapes, floral arrangements, and traditional design elements that create a warm and graceful atmosphere for the ceremony and family photographs.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Professional Makeup Artist</h3>
+      <p>Our experienced makeup artist provides elegant makeup and hairstyling for the young lady, ensuring a radiant and graceful appearance throughout the ceremony.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Professional Photography</h3>
+      <p>A dedicated photographer captures all the important rituals, family portraits, and candid moments to preserve the memories of this special milestone.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Traditional Catering</h3>
+      <p>Guests will enjoy a delicious South Indian feast prepared with quality ingredients, offering a satisfying and authentic dining experience for everyone attending the celebration.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ GOLD -->
+<section class="tier-panel" data-tier="gold" id="gold">
+
+  <div class="tier-detail-hero">
+    <div class="img-wrap">
+      <img src="pubertyimg/puberty gold.png" alt="Gold puberty ceremony decor">
+      <div class="tier-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M4 9h16l-2 11H6L4 9Z"/><path d="M8 9V6a4 4 0 0 1 8 0v3"/></svg></div>
+    </div>
+    <div class="tier-detail-copy reveal">
+      <div class="tier-tagline">The Full Celebration</div>
+      <h2>Gold Puberty Package</h2>
+      <div class="price">&#8377;4,50,000 Onwards</div>
+      <p class="intro">Celebrate this grand milestone with unmatched splendor. Our Gold package is designed to bring together tradition, elegance, and modern event excellence to create a memorable Manjal Neerattu Vizha celebration.</p>
+      <ul class="include-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Majestic Traditional Floral Backdrop</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Live Nathasvaram &amp; Thavil Performance</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Elegent Invitation Card</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Premium Makeup &amp; Designer Styling</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Cinematic Photography &amp; Highlights</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Grand Catering Service (Min 200+ Guests)</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Hand-delivered Manual Invitations</li>
+      </ul>
+      <button class="btn btn-primary" data-book-btn="Gold">Book Now
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-blocks">
+    <div class="detail-block reveal">
+      <h3>Gallery</h3>
+      <div class="gallery-scroll-container">
+        <div class="gallery-item"><img src="pubertyimg/pg5.jpg" alt="Gold puberty gallery 1"></div>
+        <div class="gallery-item"><img src="pubertyimg/pg6.jpg" alt="Gold puberty gallery 2"></div>
+        <div class="gallery-item"><img src="pubertyimg/pg7.jpg" alt="Gold puberty gallery 3"></div>
+        <div class="gallery-item"><img src="pubertyimg/pg1.jpg" alt="Gold puberty gallery 4"></div>
+        <div class="gallery-item"><img src="pubertyimg/pg2.jpg" alt="Gold puberty gallery 5"></div>
+        <div class="gallery-item"><img src="pubertyimg/pg3.jpg" alt="Gold puberty gallery 6"></div>
+        <div class="gallery-item"><img src="pubertyimg/pg4.jpg" alt="Gold puberty gallery 7"></div>
+        <div class="gallery-item"><img src="party/invitation.jpg" alt="Gold puberty invitation"></div>
+        <div class="gallery-item"><img src="epimage/photographer.jpg" alt="Gold puberty photographer"></div>
+      </div>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Majestic Decor &amp; Ambiance</h3>
+      <p>Our Gold décor package transforms the venue into a majestic traditional setting that reflects the beauty and cultural importance of the puberty ceremony. The stage features a luxurious floral backdrop crafted with fresh premium flowers, decorative garlands, and traditional banana leaf arrangements. Warm ambient lighting enhances every element of the décor, creating a rich and festive environment for family and guests. Every design detail is carefully curated to combine elegance, tradition, and visual grandeur, ensuring the ceremony feels truly special.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Live Nathasvaram &amp; Artistry</h3>
+      <p>To elevate the spiritual atmosphere of the ceremony, the Gold package includes a live Nathasvaram and Thavil performance performed by experienced traditional musicians. Their auspicious melodies create a sacred and celebratory ambiance throughout the rituals. In addition, our professional makeup and styling team ensures the young girl looks radiant and graceful. The styling is designed to highlight natural beauty while perfectly complementing traditional attire and jewelry for this important cultural event.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Cinematic Photography</h3>
+      <p>Our cinematic photography service ensures every precious moment of the ceremony is beautifully preserved. Professional photographers capture candid emotions, rituals, and family celebrations using modern cinematic techniques. A highlight video is created to tell the story of the day with elegance and creativity. High-resolution edited photos and videos allow you to relive these special memories for years to come, turning your celebration into a timeless visual experience.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Grand Catering &amp; Invitations</h3>
+      <p>The Gold package includes a grand catering service specially designed for large gatherings of more than 200 guests. Guests are served a delicious selection of authentic South Indian dishes prepared using fresh ingredients and traditional recipes. From welcome drinks to a complete festive meal, every dish is carefully curated to provide a memorable dining experience. Elegant manual invitations are also designed and personally delivered to invite guests with dignity and traditional charm.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Complimentary Signature Gifts</h3>
+      <p>To make the celebration even more meaningful, our Gold package includes special complimentary elements. Two beautifully arranged Seeru Thattu displays are added to enrich the traditional ceremony setup and enhance the visual presentation. Additionally, a professionally designed digital video invitation is created for easy sharing with friends and relatives through modern platforms. These thoughtful additions blend tradition with convenience, making your celebration even more memorable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ PLATINUM -->
+<section class="tier-panel" data-tier="platinum" id="platinum">
+
+  <div class="tier-detail-hero">
+    <div class="img-wrap">
+      <img src="pubertyimg/puberty platinum.png" alt="Platinum puberty ceremony decor">
+      <div class="tier-badge"><svg class="icon" viewBox="0 0 24 24"><path d="m3 8 4-5 5 4 5-4 4 5-3 4H6l-3-4Z"/><path d="M6 12v9h12v-9"/></svg></div>
+    </div>
+    <div class="tier-detail-copy reveal">
+      <div class="tier-tagline">The Grand Ceremony</div>
+      <h2>Platinum Puberty Package</h2>
+      <div class="price">&#8377;8,50,000 Onwards</div>
+      <p class="intro">Experience the ultimate celebration of heritage and luxury. Our Platinum package is crafted for families who want a truly majestic Manjal Neerattu Vizha with grand decor, powerful traditional performances, and an unforgettable guest experience.</p>
+      <ul class="include-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Fully Customizable Designer Stage Backdrop</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>High-Energy Jenda Melam Performance</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Elegent Invitation Card</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Sacred Homam Ritual Conducted by Prohithar</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Celebrity-Style Makeup &amp; Cinematic Photography</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Premium Buffet Catering (300+ Guests)</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>11+ Artistically Arranged Seeru Thattu</li>
+      </ul>
+      <button class="btn btn-primary" data-book-btn="Platinum">Book Now
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-blocks">
+    <div class="detail-block reveal">
+      <h3>Gallery</h3>
+      <div class="gallery-scroll-container">
+        <div class="gallery-item"><img src="pubertyimg/pp4.jpg" alt="Platinum puberty gallery 1"></div>
+        <div class="gallery-item"><img src="pubertyimg/pp5.jpg" alt="Platinum puberty gallery 2"></div>
+        <div class="gallery-item"><img src="pubertyimg/pp6.jpg" alt="Platinum puberty gallery 3"></div>
+        <div class="gallery-item"><img src="pubertyimg/pp7.jpg" alt="Platinum puberty gallery 4"></div>
+        <div class="gallery-item"><img src="pubertyimg/pp1.jpg" alt="Platinum puberty gallery 5"></div>
+        <div class="gallery-item"><img src="pubertyimg/pp2.jpg" alt="Platinum puberty gallery 6"></div>
+        <div class="gallery-item"><img src="pubertyimg/pp3.jpg" alt="Platinum puberty gallery 7"></div>
+        <div class="gallery-item"><img src="party/invitation.jpg" alt="Platinum puberty invitation"></div>
+        <div class="gallery-item"><img src="epimage/photographer.jpg" alt="Platinum puberty photographer"></div>
+      </div>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Bespoke Decor &amp; Grand Stage</h3>
+      <p>Our Platinum décor package transforms the venue into a spectacular ceremonial setting with a fully customizable designer stage. The backdrop is crafted with premium flowers, artistic lighting, and luxury stage elements to create a visually breathtaking centerpiece. The stage design can be personalized based on traditional or modern themes to match your family's vision. To enhance the cultural significance of the event, more than 11 beautifully arranged Seeru Thattu displays are included, creating a grand and elegant ritual environment for the ceremony.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Energy &amp; Spirituality</h3>
+      <p>This package brings together spiritual depth and vibrant celebration. The ceremony begins with sacred Homam rituals conducted by an experienced Prohithar who performs the traditional rites with precision and devotion. These rituals symbolize blessings, prosperity, and protection for the young girl entering womanhood. To elevate the energy of the event, a powerful Jenda Melam performance fills the venue with rhythmic beats and festive excitement, creating a dramatic and unforgettable ceremonial atmosphere.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Elite Artistry &amp; Cinematic Memories</h3>
+      <p>Our professional makeup artists provide celebrity-level styling designed specifically for traditional ceremonies. The styling highlights natural beauty while ensuring a radiant and elegant appearance throughout the event. Meanwhile, our cinematic photography team captures every moment using modern storytelling techniques. From emotional family interactions to sacred rituals, each memory is documented in high-resolution photos and a beautifully edited cinematic highlight film that preserves your celebration forever.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Grand Banquet Experience</h3>
+      <p>The Platinum package includes a lavish buffet catering service designed for grand gatherings of more than 300 guests. A wide variety of authentic South Indian delicacies and carefully curated multi-cuisine dishes are served to provide an exceptional dining experience. From welcome drinks to the final dessert, every dish reflects traditional hospitality and premium quality. Elegant physical invitation cards are also included, ensuring your guests receive a prestigious and memorable invitation to this grand celebration.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Complimentary Signature Gifts</h3>
+      <p>To enhance the luxury experience, the Platinum package includes special complimentary features designed to impress your guests. A professionally produced cinematic digital invitation video is created to share your celebration across social media platforms. Additionally, a beautifully designed personalized welcome board is placed at the venue entrance to greet guests with elegance. These thoughtful additions blend modern creativity with traditional celebration, making your event even more memorable.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ DIAMOND -->
+<section class="tier-panel" data-tier="diamond" id="diamond">
+
+  <div class="tier-detail-hero">
+    <div class="img-wrap">
+      <img src="pubertyimg/puberty diamond.png" alt="Diamond puberty ceremony decor">
+      <div class="tier-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M6 3h12l4 6-10 12L2 9l4-6Z"/><path d="M2 9h20M9 3l3 6-3 12M15 3l-3 6 3 12"/></svg></div>
+    </div>
+    <div class="tier-detail-copy reveal">
+      <div class="tier-tagline">The Signature Occasion</div>
+      <h2>Diamond Puberty Package</h2>
+      <div class="price">&#8377;12,50,000 Onwards</div>
+      <p class="intro">The Diamond package represents the highest level of celebration, designed for families who desire a truly royal and unforgettable Manjal Neerattu Vizha. From grand stage production to cinematic ceremonial entries, every moment is crafted to create a luxurious and emotionally powerful experience.</p>
+      <ul class="include-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Elite Grand Stage &amp; Designer Backdrop</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Smoke &amp; Fire Sparkle Cinematic Entry</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Elegent Invitation Card</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Professional Welcome Dance Troupe</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>High-Definition Celebrity Makeup</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Live DJ &amp; Premium Sound System</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Luxury Buffet Catering (500+ Guests)</li>
+      </ul>
+      <button class="btn btn-primary" data-book-btn="Diamond">Book Now
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-blocks">
+    <div class="detail-block reveal">
+      <h3>Diamond Gallery</h3>
+      <div class="gallery-scroll-container">
+        <div class="gallery-item"><img src="pubertyimg/pd4.jpg" alt="Diamond puberty gallery 1"></div>
+        <div class="gallery-item"><img src="pubertyimg/pd5.jpg" alt="Diamond puberty gallery 2"></div>
+        <div class="gallery-item"><img src="pubertyimg/pd6.jpg" alt="Diamond puberty gallery 3"></div>
+        <div class="gallery-item"><img src="pubertyimg/pd7.jpg" alt="Diamond puberty gallery 4"></div>
+        <div class="gallery-item"><img src="images/bd5.jpg" alt="Diamond puberty gallery 5"></div>
+        <div class="gallery-item"><img src="pubertyimg/pd1.jpg" alt="Diamond puberty gallery 6"></div>
+        <div class="gallery-item"><img src="pubertyimg/pd2.jpg" alt="Diamond puberty gallery 7"></div>
+        <div class="gallery-item"><img src="pubertyimg/pd3.jpg" alt="Diamond puberty gallery 8"></div>
+        <div class="gallery-item"><img src="epimage/boquet.jpg" alt="Diamond puberty bouquet"></div>
+        <div class="gallery-item"><img src="party/invitation.jpg" alt="Diamond puberty invitation"></div>
+        <div class="gallery-item"><img src="epimage/polaroid.jpg" alt="Diamond puberty polaroids"></div>
+        <div class="gallery-item"><img src="epimage/photographer.jpg" alt="Diamond puberty photographer"></div>
+      </div>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Event Decor Details</h3>
+      <p>Transform your grand opening into a breathtaking celebration with our premium stage decor and luxury event styling. Our team designs elegant backdrops, themed entrances, LED lighting effects, and grand floral arrangements to create a picture-perfect ambiance that reflects your brand and celebration style. From corporate launches to premium store openings and destination celebrations, every design element is carefully crafted to deliver a visually stunning experience.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Destination Event Planning</h3>
+      <p>Planning an event outside your city? We specialize in destination event planning, managing everything from venue selection and guest experience to décor setup and entertainment coordination. Our professional team ensures that your celebration is executed flawlessly while maintaining luxury standards and seamless event flow.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Catering &amp; Multi-Cuisine Experience</h3>
+      <p>Delight your guests with our premium catering services featuring multiple cuisines prepared by expert chefs. From traditional Indian delicacies to international dishes, our menu includes a wide variety of vegetarian and non-vegetarian options. Live food stalls, snack counters, and beverage stations add an interactive dining experience that keeps guests engaged throughout the celebration.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Professional Photography &amp; Videography</h3>
+      <p>Capture every important moment with our professional photography and cinematic videography team. Using high-end cameras, creative lighting setups, and cinematic editing techniques, we ensure every highlight of your event is beautifully documented. We also provide live photo booths and instant photo print stations for guests to enjoy and create lasting memories.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Makeup Artists &amp; Styling</h3>
+      <p>Look your absolute best on your special day with our expert makeup artists and styling professionals. From natural elegant looks to glamorous event styling, our team ensures that every host and performer is perfectly prepared for the spotlight.</p>
+    </div>
+    <div class="detail-block reveal">
+      <h3>Entertainment &amp; Guest Engagement</h3>
+      <p>Keep the celebration lively with exciting entertainment options including DJs, dance floor setups, mascots, live performers, and interactive activities. Our entertainment arrangements are designed to energize the crowd and create an unforgettable festive atmosphere for every guest attending the event.</p>
+    </div>
+  </div>
+</section>
+
+<div class="help-strip reveal">
+  <div>
+    <h3>Still deciding between tiers?</h3>
+    <p>Tell us your guest count and the customs you'd like included — we'll recommend the right one.</p>
+  </div>
+  <div class="help-actions">
+    <a href="tel:+918778318394"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> Call Us</a>
+    <a href="https://wa.me/918778318394" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg> WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand reveal">
+        <div class="logo-mark"><img src="images/final logo.png" alt="Tharunam Events"></div>
+        <p class="footer-tagline">Tamil Nadu's dedicated event planning studio. Delivering thoughtfully styled weddings, ceremonies and corporate events across South India.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1Z"/></svg></a>
+          <a href="mailto:tharunam2026@gmail.com" aria-label="Email"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a>
+          <a href="https://wa.me/918778318394" aria-label="WhatsApp" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col reveal">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="marriage.html">Wedding Events</a></li>
+          <li><a href="c.html">Corporate Events</a></li>
+          <li><a href="index.html#enquiry">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col reveal">
+        <h4>Contact</h4>
+        <a class="footer-contact-row" href="tel:+918778318394">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          +91 8778318394
+        </a>
+        <a class="footer-contact-row" href="mailto:tharunam2026@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          tharunam2026@gmail.com
+        </a>
+        <div class="footer-contact-row" style="margin-bottom:0;">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Coimbatore, Tamil Nadu, India
+        </div>
+        <a class="footer-whatsapp-btn" href="https://wa.me/918778318394" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>&copy; 2026 Tharunam Events. All Rights Reserved.</div>
+      <div class="footer-cities"><span>Chennai</span><span>Coimbatore</span><span>Madurai</span><span>Trichy</span><span>Salem</span></div>
+    </div>
+  </div>
 </footer>
+
+<a class="fab" href="https://wa.me/918778318394" target="_blank" rel="noopener" aria-label="Chat with Tharunam Events on WhatsApp">
+  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg>
+  <span class="fab-text">Chat with Us</span>
+</a>
+
+<!-- ============================================================ SHARED BOOKING MODAL (one modal, all four tiers) -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Your Event</h2>
+    <p class="modal-tier-label" id="modalTierLabel">Puberty Ceremony — Silver Package</p>
+
+    <form action="https://formspree.io/f/maqpeyej" method="POST">
+      <input type="hidden" name="event_type" value="Puberty">
+      <input type="hidden" name="package_type" id="modalPackageType" value="Silver">
+
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label>Event Date *</label>
+        <input type="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label>Location</label>
+        <input type="text" name="location">
+      </div>
+      <div class="form-group">
+        <label>Event Details</label>
+        <textarea name="event_details" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Enquiry</button>
+    </form>
+
+    <p class="modal-contact-note"><b>Contact Us:</b> +91 8778318394 &nbsp;|&nbsp; tharunam2026@gmail.com</p>
+  </div>
+</div>
+
+<!-- ============================================================ SHARED IMAGE VIEWER (one viewer, reads whichever tier is open) -->
+<div id="imageViewer" class="image-viewer">
+  <span class="close-viewer" onclick="closeViewer()">&times;</span>
+  <button class="nav-arrow left" onclick="prevImage()">&#10094;</button>
+  <img id="viewerImg" alt="">
+  <button class="nav-arrow right" onclick="nextImage()">&#10095;</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const navbar = document.getElementById('navbar');
+    const menuBtn = document.querySelector("#mobile-menu");
+    const navLinks = document.querySelector(".nav-links");
+    const locationMenu = document.getElementById('locationMenu');
+    const contactMenu = document.getElementById('contactMenu');
+
+    /* ---- nav shrink on scroll ---- */
+    function onScroll(){
+        navbar.classList.toggle('scrolled', window.scrollY > 12);
+    }
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    /* ---- dropdown open/close ---- */
+    function openDropdown(panel){ panel.classList.add('show'); }
+    function closeDropdown(panel){ panel.classList.remove('show'); }
+
+    function closeAllDropdowns(){
+        [locationMenu, contactMenu].forEach((el) => {
+            el.classList.remove('dropdown-open');
+            el.setAttribute('aria-expanded','false');
+            closeDropdown(el.querySelector('.dropdown-panel'));
+        });
+    }
+
+    function toggleMenu(menuEl, otherEl){
+        const willOpen = !menuEl.classList.contains('dropdown-open');
+        otherEl.classList.remove('dropdown-open');
+        otherEl.setAttribute('aria-expanded','false');
+        closeDropdown(otherEl.querySelector('.dropdown-panel'));
+
+        menuEl.classList.toggle('dropdown-open', willOpen);
+        menuEl.setAttribute('aria-expanded', String(willOpen));
+        const panel = menuEl.querySelector('.dropdown-panel');
+        if(willOpen){ requestAnimationFrame(()=>openDropdown(panel)); }
+        else{ closeDropdown(panel); }
+    }
+
+    function toggleDrawer(){
+        const isOpen = navLinks.classList.toggle("active");
+        menuBtn.classList.toggle("is-active", isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        if(!isOpen){ closeAllDropdowns(); }
+    }
+    menuBtn.addEventListener("click", (e) => { e.stopPropagation(); toggleDrawer(); });
+    menuBtn.addEventListener("keydown", (e) => {
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleDrawer(); }
+    });
+
+    locationMenu.addEventListener("click", (e) => { e.stopPropagation(); toggleMenu(locationMenu, contactMenu); });
+    contactMenu.addEventListener("click", (e) => { e.stopPropagation(); toggleMenu(contactMenu, locationMenu); });
+    [locationMenu, contactMenu].forEach((el) => {
+        el.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); el.click(); }
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+            navLinks.classList.remove("active");
+            menuBtn.classList.remove("is-active");
+            menuBtn.setAttribute('aria-expanded','false');
+            closeAllDropdowns();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape'){
+            navLinks.classList.remove("active");
+            menuBtn.classList.remove("is-active");
+            menuBtn.setAttribute('aria-expanded','false');
+            closeAllDropdowns();
+        }
+    });
+
+    /* ---- scroll reveal ---- */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {threshold:0.15});
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ---------------------------------------------------------
+       TIER TABS — one switcher swaps which <section class="tier-panel">
+       is visible, instead of four separate HTML files.
+    --------------------------------------------------------- */
+    const tabs = document.querySelectorAll('.tier-tab');
+    const panels = document.querySelectorAll('.tier-panel');
+
+    function activateTier(tier, updateHash){
+        tabs.forEach(t => {
+            const isActive = t.dataset.tab === tier;
+            t.classList.toggle('active', isActive);
+            t.setAttribute('aria-selected', String(isActive));
+        });
+        panels.forEach(p => p.classList.toggle('active', p.dataset.tier === tier));
+        if(updateHash !== false){
+            history.replaceState(null, '', '#' + tier);
+        }
+        document.querySelectorAll('.tier-panel.active .reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTier(tab.dataset.tab));
+        tab.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activateTier(tab.dataset.tab); }
+        });
+    });
+
+    // Open directly to a tier via pubertypackages.html#gold etc.
+    const validTiers = ['silver','gold','platinum','diamond'];
+    const initialTier = validTiers.includes(location.hash.replace('#','')) ? location.hash.replace('#','') : 'silver';
+    activateTier(initialTier, false);
+
+    /* ---------------------------------------------------------
+       SHARED BOOKING MODAL — one modal, tier passed in per click
+    --------------------------------------------------------- */
+    const bookingModal = document.getElementById('bookingModal');
+    const modalTierLabel = document.getElementById('modalTierLabel');
+    const modalPackageType = document.getElementById('modalPackageType');
+
+    document.querySelectorAll('[data-book-btn]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tier = btn.dataset.bookBtn;
+            modalTierLabel.textContent = 'Puberty Ceremony — ' + tier + ' Package';
+            modalPackageType.value = tier;
+            bookingModal.style.display = 'block';
+        });
+    });
+
+    window.closeModal = function(){
+        bookingModal.style.display = 'none';
+    };
+
+    window.addEventListener('click', (e) => {
+        if(e.target === bookingModal){ bookingModal.style.display = 'none'; }
+    });
+
+    /* ---------------------------------------------------------
+       SHARED IMAGE VIEWER — builds its image list from whichever
+       tier panel is currently active, so one viewer serves all four.
+    --------------------------------------------------------- */
+    const viewer = document.getElementById('imageViewer');
+    const viewerImg = document.getElementById('viewerImg');
+    let currentImages = [];
+    let currentIndex = 0;
+
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.tier-panel.active .gallery-item img');
+        if(!item) return;
+        currentImages = Array.from(document.querySelectorAll('.tier-panel.active .gallery-item img'));
+        currentIndex = currentImages.indexOf(item);
+        viewerImg.src = item.src;
+        viewerImg.alt = item.alt;
+        viewer.style.display = 'flex';
+    });
+
+    window.closeViewer = function(){ viewer.style.display = 'none'; };
+    window.nextImage = function(){
+        if(!currentImages.length) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        viewerImg.src = currentImages[currentIndex].src;
+    };
+    window.prevImage = function(){
+        if(!currentImages.length) return;
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        viewerImg.src = currentImages[currentIndex].src;
+    };
+
+    document.addEventListener('keydown', (e) => {
+        if(viewer.style.display === 'flex'){
+            if(e.key === 'ArrowRight'){ nextImage(); }
+            if(e.key === 'ArrowLeft'){ prevImage(); }
+            if(e.key === 'Escape'){ closeViewer(); }
+        }
+    });
+
+    let touchStartX = 0;
+    viewer.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+    viewer.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        if(touchStartX - endX > 50){ nextImage(); }
+        if(endX - touchStartX > 50){ prevImage(); }
+    });
+
+});
+</script>
 
 </body>
 </html>

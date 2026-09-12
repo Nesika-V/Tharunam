@@ -1,172 +1,1034 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Corporate Events - Tharunam</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
-        body { background: #FFEBEE; color: #333; overflow-x: hidden; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Corporate Packages — School, College &amp; Business Events | Tharunam Events</title>
 
-        /* NAVBAR - Perfectly matched to index.html */
-        .navbar {
-            background: #8d0809; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 50px 0 0;
-            height: 80px;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Cinzel:wght@500;600;700&family=Cormorant:ital,wght@0,500;1,400;1,500&display=swap" rel="stylesheet">
 
-        .logo {
-            height: 100%;
-            width: 450px; 
-            display: flex;
-            overflow: hidden;
-        }
+<style>
 
-        .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: fill;
-            display: block;
-        }
+/* =========================================
+   TOKENS — identical to index.html / birthdaypackages.html
+   ========================================= */
+:root{
+  --maroon-950:#2a0e0f;
+  --maroon-900:#4a0d0e;
+  --maroon-700:#8d0809;
+  --maroon-600:#a5100f;
+  --maroon-500:#c1201d;
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-            margin-right: 50px;
-        }
+  --cream:#FBF5F2;
+  --blush:#F3E2DE;
+  --ink:#2a1c1c;
+  --ink-soft:#5c4747;
+  --white:#ffffff;
+  --line:rgba(141,8,9,0.14);
 
-        .nav-links li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            border: 1px solid white;
-            padding: 8px 20px;
-            border-radius: 25px;
-            transition: 0.3s;
-        }
+  --font-ui:'Poppins', sans-serif;
+  --font-display:'Cinzel', serif;
+  --font-accent:'Cormorant', serif;
 
-        .nav-links li a:hover { background: white; color: #8d0809; }
-
-        /* MAIN CONTENT */
-        .container { max-width: 1100px; margin: 50px auto; padding: 0 20px; text-align: center; }
-        h1 { color: #8d0809; margin-bottom: 40px; font-size: 2.5rem; }
-
-        /* 2x2 GRID */
-        .package-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-
-        .category-box {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .category-box:hover { transform: translateY(-10px); }
-
-        .category-box img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            display: block;
-        }
-
-        .category-info { padding: 25px; text-align: center; }
-        .category-info h2 { font-size: 1.6rem; margin-bottom: 10px; }
-        
-        /* Tier Colors */
-        .silver h2 { color: #757575; }
-        .gold h2 { color: #D4AF37; }
-        .platinum h2 { color: #506266; }
-        .diamond h2 { color: #00ACC1; }
-
-        .book-now {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 25px;
-            background: #8d0809;
-            color: white;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .navbar { height: auto; flex-direction: column; padding: 10px 0; }
-            .logo { width: 100%; height: 60px; }
-            .nav-links { margin-right: 0; margin-top: 10px; }
-            .package-grid { grid-template-columns: 1fr; }
-        }
-        .category-info p {
-    font-size: 1.4rem;  /* Increases the size (default is usually 1rem) */
-    font-weight: 600;   /* Makes it slightly bolder/clearer */
-    color: #444;        /* Sets a sharp, professional color */
-    margin-bottom: 10px;
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
 }
-    </style>
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
+}
+
+body{
+  font-family:var(--font-ui);
+  font-size:1rem;
+  line-height:1.65;
+  color:var(--ink);
+  background:var(--cream);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit;}
+:focus-visible{outline:2px solid var(--maroon-500);outline-offset:3px;border-radius:2px;}
+.icon{width:20px;height:20px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.7s var(--ease), transform 0.7s var(--ease);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-stagger.visible > *{transition-delay:calc(var(--i,0) * 90ms);}
+
+/* =========================================
+   NAVBAR — reused from index.html / birthdaypackages.html
+   ========================================= */
+.navbar{
+  background:var(--maroon-950);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:0 clamp(20px,4vw,50px) 0 0;height:82px;
+  position:sticky;top:0;z-index:1000;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06);
+  transition:height 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.navbar.scrolled{height:64px;box-shadow:0 10px 30px rgba(20,4,4,0.25);}
+
+.logo{height:100%;max-width:250px;display:flex;align-items:center;padding-left:22px;overflow:hidden;flex-shrink:0;}
+.logo a{display:flex;align-items:center;height:100%;width:100%;}
+.logo img{height:68%;width:auto;max-width:100%;object-fit:contain;transition:height 0.3s var(--ease);}
+.navbar.scrolled .logo img{height:58%;}
+
+.nav-links{display:flex;align-items:center;list-style:none;gap:38px;}
+.nav-links > li{position:relative;color:var(--blush);font-weight:500;font-size:0.9rem;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;}
+.nav-links > li > a{color:var(--white);text-decoration:none;padding:6px 0;position:relative;}
+.nav-links > li > a::after{content:'';position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--maroon-500);transition:right 0.3s var(--ease);}
+.nav-links > li > a:hover::after,.nav-links > li > a:focus-visible::after{right:0;}
+
+.nav-links li a.back-btn{
+  display:inline-flex;align-items:center;gap:8px;color:var(--white);text-decoration:none;
+  font-weight:500;border:1px solid rgba(255,255,255,0.35);padding:8px 20px;border-radius:25px;
+  font-size:0.85rem;letter-spacing:0.03em;text-transform:none;
+  transition:background 0.3s var(--ease), border-color 0.3s var(--ease), transform 0.25s var(--ease-spring);
+}
+.nav-links li a.back-btn:hover,.nav-links li a.back-btn:focus-visible{background:var(--maroon-700);border-color:var(--maroon-700);transform:translateY(-2px);}
+
+#locationMenu,#contactMenu{color:var(--white);display:flex;align-items:center;gap:6px;padding:6px 0;}
+.caret{display:inline-block;font-size:0.7em;transition:transform 0.3s var(--ease);}
+.dropdown-open .caret{transform:rotate(180deg);}
+
+.dropdown-panel{
+  position:absolute;top:calc(100% + 14px);left:50%;transform:translateX(-50%) translateY(6px);
+  background:var(--white);border-radius:4px;border:1px solid var(--line);
+  box-shadow:0 18px 40px rgba(42,14,15,0.18);padding:18px 22px;
+  display:none;opacity:0;z-index:1001;color:var(--ink);min-width:230px;white-space:nowrap;
+  transition:opacity 0.25s var(--ease), transform 0.25s var(--ease);
+}
+#contactMenu .dropdown-panel{left:auto;right:0;transform:translateY(6px);}
+.dropdown-open .dropdown-panel{display:block;}
+.dropdown-panel.show{opacity:1;transform:translateX(-50%) translateY(0);}
+#contactMenu .dropdown-panel.show{transform:translateY(0);}
+
+.dropdown-panel ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,auto);gap:9px 24px;}
+.dropdown-panel li{display:flex;align-items:center;gap:7px;color:var(--ink-soft);font-size:0.92rem;cursor:default;}
+.dropdown-panel li .icon{width:14px;height:14px;color:var(--maroon-600);}
+.dropdown-panel a.contact-row{display:flex;align-items:center;gap:10px;color:var(--ink-soft);font-size:0.95rem;text-decoration:none;padding:3px 0;transition:color 0.2s var(--ease);}
+.dropdown-panel a.contact-row:hover{color:var(--maroon-700);}
+.dropdown-panel a.contact-row .icon{color:var(--maroon-600);}
+
+.menu-toggle{display:none;cursor:pointer;flex-direction:column;justify-content:center;align-items:center;gap:6px;width:44px;height:44px;flex-shrink:0;border-radius:6px;transition:background 0.25s var(--ease);}
+.menu-toggle:hover,.menu-toggle:focus-visible{background:rgba(255,255,255,0.08);}
+.menu-toggle .bar{width:22px;height:2px;background-color:var(--white);border-radius:2px;transition:0.3s var(--ease);}
+
+/* =========================================
+   PAGE HERO
+   ========================================= */
+.page-hero{
+  padding:clamp(48px,7vw,80px) clamp(20px,5vw,50px) clamp(28px,4vw,40px);
+  max-width:1100px;margin:0 auto;text-align:center;
+}
+.breadcrumb{display:flex;align-items:center;justify-content:center;gap:8px;font-size:0.82rem;color:var(--ink-soft);margin-bottom:20px;}
+.breadcrumb a{color:var(--maroon-700);text-decoration:none;font-weight:600;}
+.breadcrumb a:hover{text-decoration:underline;}
+.hero-eyebrow{font-family:var(--font-display);font-size:0.72rem;font-weight:600;letter-spacing:0.34em;text-transform:uppercase;color:var(--maroon-600);margin-bottom:18px;}
+.page-hero h1{font-weight:700;font-size:clamp(2rem,4.4vw,3rem);line-height:1.15;letter-spacing:-0.01em;color:var(--maroon-950);}
+.page-hero .hero-lede{margin:20px auto 0;color:var(--ink-soft);font-size:1.05rem;max-width:58ch;line-height:1.75;}
+
+.btn{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:0.9rem;
+  letter-spacing:0.02em;padding:14px 26px;border-radius:4px;cursor:pointer;text-decoration:none;border:1px solid transparent;
+  transition:transform 0.25s var(--ease-spring), box-shadow 0.3s var(--ease), background 0.3s var(--ease), color 0.3s var(--ease);
+}
+.btn:active{transform:scale(0.97);}
+.btn-primary{background:var(--maroon-700);color:var(--white);box-shadow:0 10px 24px rgba(141,8,9,0.22);}
+.btn-primary:hover,.btn-primary:focus-visible{background:var(--maroon-600);transform:translateY(-2px);box-shadow:0 16px 30px rgba(141,8,9,0.3);}
+.btn-ghost{background:transparent;color:var(--maroon-700);border-color:var(--maroon-700);}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:var(--maroon-700);color:var(--white);transform:translateY(-2px);}
+.btn .icon{width:16px;height:16px;transition:transform 0.3s var(--ease);}
+.btn:hover .icon{transform:translateX(3px);}
+.btn-small{padding:10px 20px;font-size:0.8rem;}
+
+/* =========================================
+   NOTE STRIP
+   ========================================= */
+.note-strip{max-width:1100px;margin:0 auto 10px;padding:0 clamp(20px,5vw,50px);}
+.note-card{display:flex;gap:16px;align-items:flex-start;background:var(--blush);border-radius:10px;padding:22px 26px;}
+.note-card .icon{width:22px;height:22px;color:var(--maroon-700);margin-top:2px;flex-shrink:0;}
+.note-card p{font-size:0.92rem;color:var(--ink-soft);line-height:1.7;}
+.note-card strong{color:var(--maroon-950);}
+
+/* =========================================
+   TIER TAB BAR — the merge point: one switcher,
+   three panels, instead of three separate pages
+   ========================================= */
+.tier-tab-bar{
+  max-width:560px;margin:30px auto 0;display:flex;
+  background:var(--blush);border-radius:50px;padding:6px;gap:4px;
+  position:sticky;top:calc(82px + 14px);z-index:90;
+  box-shadow:0 10px 26px rgba(42,14,15,0.1);
+}
+.tier-tab{
+  flex:1;text-align:center;padding:12px 14px;border-radius:50px;
+  font-weight:600;font-size:0.85rem;letter-spacing:0.02em;color:var(--maroon-700);
+  cursor:pointer;transition:background 0.3s var(--ease), color 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.tier-tab.active{background:var(--maroon-700);color:var(--white);box-shadow:0 10px 22px rgba(141,8,9,0.28);}
+.tier-tab:hover:not(.active){background:rgba(255,255,255,0.6);}
+
+@media(max-width:600px){
+  .tier-tab-bar{border-radius:16px;flex-wrap:wrap;position:static;}
+  .tier-tab{flex:1 1 30%;}
+}
+
+/* =========================================
+   TIER PANELS
+   ========================================= */
+.tier-panel{display:none;padding-top:clamp(40px,6vw,64px);}
+.tier-panel.active{display:block;animation:panelIn 0.5s var(--ease);}
+@keyframes panelIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
+
+.tier-detail-hero{
+  max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,50px) clamp(50px,6vw,70px);
+  display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(30px,5vw,50px);align-items:start;
+}
+.tier-detail-hero .img-wrap{position:relative;border-radius:14px;overflow:hidden;box-shadow:0 26px 50px rgba(42,14,15,0.18);}
+.tier-detail-hero .img-wrap img{width:100%;height:100%;object-fit:cover;display:block;aspect-ratio:4/3;}
+.tier-badge{
+  position:absolute;top:18px;left:18px;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  width:56px;height:56px;border-radius:50%;color:var(--white);
+  box-shadow:0 8px 18px rgba(42,14,15,0.35);border:1.5px solid rgba(255,255,255,0.6);
+}
+.tier-badge .icon{width:26px;height:26px;stroke-width:1.5;}
+[data-tier="school"] .tier-badge{background:linear-gradient(145deg,#9a7d78,#6b504c);}
+[data-tier="college"] .tier-badge{background:linear-gradient(145deg,var(--maroon-600),var(--maroon-900));}
+[data-tier="grand"] .tier-badge{background:linear-gradient(145deg,var(--maroon-700),var(--maroon-950));}
+
+.tier-detail-copy .tier-tagline{font-family:var(--font-display);font-size:0.72rem;font-weight:600;letter-spacing:0.28em;text-transform:uppercase;color:var(--maroon-600);}
+.tier-detail-copy h2{font-weight:700;font-size:clamp(1.7rem,3.2vw,2.3rem);color:var(--maroon-950);margin-top:12px;}
+.tier-detail-copy .price{font-family:var(--font-ui);color:var(--maroon-700);font-weight:700;font-size:1.15rem;letter-spacing:0.02em;margin-top:12px;}
+.tier-detail-copy .intro{color:var(--ink-soft);font-size:0.98rem;margin-top:16px;line-height:1.75;}
+
+.include-list{list-style:none;margin-top:24px;display:flex;flex-direction:column;gap:11px;}
+.include-list li{display:flex;align-items:flex-start;gap:10px;font-size:0.93rem;color:var(--ink-soft);}
+.include-list li .icon{width:16px;height:16px;color:var(--maroon-600);margin-top:2px;stroke-width:2;flex-shrink:0;}
+
+.tier-detail-copy .btn{margin-top:28px;}
+
+/* =========================================
+   DETAIL BLOCKS
+   ========================================= */
+.detail-blocks{max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,50px) clamp(60px,7vw,90px);}
+.detail-block{
+  background:var(--white);border:1px solid var(--line);border-radius:10px;
+  padding:clamp(24px,3vw,32px);margin-bottom:24px;box-shadow:0 6px 20px rgba(42,14,15,0.05);
+}
+.detail-block h3{font-weight:600;font-size:1.15rem;color:var(--maroon-950);padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--line);}
+.detail-block p{color:var(--ink-soft);font-size:0.95rem;line-height:1.75;}
+
+.gallery-scroll-container{display:flex;overflow-x:auto;gap:18px;padding:4px 0 12px;scroll-behavior:smooth;}
+.gallery-scroll-container::-webkit-scrollbar{height:7px;}
+.gallery-scroll-container::-webkit-scrollbar-track{background:var(--blush);border-radius:10px;}
+.gallery-scroll-container::-webkit-scrollbar-thumb{background:var(--maroon-600);border-radius:10px;}
+.gallery-item{flex:0 0 240px;height:180px;border-radius:8px;overflow:hidden;cursor:pointer;box-shadow:0 4px 12px rgba(42,14,15,0.1);}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.5s var(--ease);}
+.gallery-item:hover img{transform:scale(1.08);}
+
+/* =========================================
+   HELP STRIP
+   ========================================= */
+.help-strip{
+  background:var(--blush);border-radius:10px;padding:34px clamp(24px,4vw,48px);
+  max-width:1200px;margin:0 auto clamp(70px,8vw,100px);
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+}
+.help-strip h3{font-weight:600;font-size:1.15rem;color:var(--maroon-950);}
+.help-strip p{color:var(--ink-soft);font-size:0.92rem;margin-top:4px;}
+.help-actions{display:flex;gap:14px;flex-wrap:wrap;}
+.help-actions a{
+  display:inline-flex;align-items:center;gap:9px;color:var(--maroon-700);text-decoration:none;
+  font-size:0.9rem;font-weight:600;border:1px solid var(--maroon-700);padding:11px 20px;border-radius:6px;
+  transition:background 0.25s var(--ease), color 0.25s var(--ease);
+}
+.help-actions a:hover,.help-actions a:focus-visible{background:var(--maroon-700);color:var(--white);}
+.help-actions .icon{width:17px;height:17px;}
+
+/* =========================================
+   SHARED BOOKING MODAL
+   ========================================= */
+.modal{display:none;position:fixed;z-index:2000;left:0;top:0;width:100%;height:100%;background:rgba(42,14,15,0.55);overflow-y:auto;}
+.modal-content{background:var(--white);margin:5% auto;padding:34px;border-radius:10px;width:90%;max-width:500px;position:relative;}
+.close-btn{position:absolute;right:20px;top:14px;font-size:1.7rem;cursor:pointer;color:var(--maroon-700);}
+.modal-content h2{font-weight:700;font-size:1.4rem;color:var(--maroon-950);text-align:center;margin-bottom:6px;}
+.modal-tier-label{text-align:center;font-size:0.85rem;color:var(--maroon-600);font-weight:600;margin-bottom:22px;}
+.form-group{margin-bottom:16px;display:flex;flex-direction:column;gap:6px;}
+.form-group label{font-size:0.72rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-soft);}
+.form-group input,.form-group textarea{
+  padding:11px 13px;border:1px solid var(--line);border-radius:5px;font-family:var(--font-ui);
+  font-size:0.94rem;background:var(--cream);color:var(--ink);transition:border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--maroon-700);background:var(--white);box-shadow:0 0 0 3px rgba(141,8,9,0.08);}
+.submit-btn{
+  width:100%;padding:13px;background:var(--maroon-700);color:var(--white);border:none;border-radius:5px;
+  font-weight:600;font-size:0.9rem;letter-spacing:0.03em;cursor:pointer;transition:background 0.3s var(--ease);
+}
+.submit-btn:hover{background:var(--maroon-600);}
+.modal-contact-note{text-align:center;font-size:0.85rem;color:var(--ink-soft);margin-top:18px;padding-top:18px;border-top:1px solid var(--line);}
+
+/* =========================================
+   SHARED IMAGE VIEWER
+   ========================================= */
+.image-viewer{display:none;position:fixed;z-index:3000;top:0;left:0;width:100%;height:100%;background:rgba(10,4,4,0.95);align-items:center;justify-content:center;}
+.image-viewer img{max-width:90%;max-height:85%;border-radius:10px;animation:zoomIn 0.3s ease;}
+@keyframes zoomIn{from{transform:scale(0.8);opacity:0;}to{transform:scale(1);opacity:1;}}
+.close-viewer{position:absolute;top:24px;right:34px;font-size:2.4rem;color:var(--white);cursor:pointer;}
+.nav-arrow{position:absolute;top:50%;transform:translateY(-50%);font-size:2.6rem;color:var(--white);cursor:pointer;padding:10px;user-select:none;background:none;border:none;}
+.nav-arrow.left{left:24px;}
+.nav-arrow.right{right:24px;}
+
+/* =========================================
+   FOOTER + FAB — reused from index.html / birthdaypackages.html
+   ========================================= */
+footer{background:var(--maroon-950);color:rgba(255,255,255,0.65);padding:clamp(56px,7vw,80px) clamp(20px,5vw,50px) 0;}
+.footer-inner{max-width:1200px;margin:0 auto;}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:48px;padding-bottom:52px;}
+.footer-brand .logo-mark{display:flex;align-items:center;gap:10px;margin-bottom:20px;}
+.footer-brand .logo-mark img{height:46px;width:auto;object-fit:contain;}
+.footer-tagline{font-size:0.95rem;line-height:1.75;color:rgba(255,255,255,0.55);max-width:36ch;}
+.footer-social{display:flex;gap:10px;margin-top:24px;}
+.footer-social a{
+  width:38px;height:38px;border-radius:50%;border:1px solid rgba(255,255,255,0.16);
+  display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,0.7);
+  transition:border-color 0.25s var(--ease), color 0.25s var(--ease), transform 0.25s var(--ease-spring), background 0.25s var(--ease);
+}
+.footer-social a:hover,.footer-social a:focus-visible{border-color:var(--maroon-500);color:var(--white);background:var(--maroon-700);transform:translateY(-3px);}
+.footer-social .icon{width:17px;height:17px;}
+.footer-col h4{font-size:0.74rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.42);margin-bottom:20px;}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:13px;}
+.footer-links a{color:rgba(255,255,255,0.78);text-decoration:none;font-size:0.95rem;position:relative;width:fit-content;transition:color 0.25s var(--ease);}
+.footer-links a::after{content:'';position:absolute;left:0;right:100%;bottom:-2px;height:1px;background:var(--maroon-500);transition:right 0.3s var(--ease);}
+.footer-links a:hover,.footer-links a:focus-visible{color:var(--white);}
+.footer-links a:hover::after,.footer-links a:focus-visible::after{right:0;}
+.footer-contact-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:16px;color:rgba(255,255,255,0.78);font-size:0.92rem;text-decoration:none;line-height:1.5;transition:color 0.25s var(--ease);}
+.footer-contact-row:hover,.footer-contact-row:focus-visible{color:var(--white);}
+.footer-contact-row .icon{width:17px;height:17px;color:var(--maroon-500);flex-shrink:0;margin-top:2px;}
+.footer-whatsapp-btn{
+  display:inline-flex;align-items:center;gap:9px;margin-top:6px;background:#25D366;color:#0b2b18;font-weight:600;font-size:0.88rem;
+  padding:11px 20px;border-radius:6px;text-decoration:none;transition:transform 0.25s var(--ease-spring), box-shadow 0.3s var(--ease);
+}
+.footer-whatsapp-btn:hover,.footer-whatsapp-btn:focus-visible{transform:translateY(-2px);box-shadow:0 12px 24px rgba(37,211,102,0.28);}
+.footer-whatsapp-btn .icon{width:17px;height:17px;stroke-width:2;}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.08);padding:22px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:0.82rem;color:rgba(255,255,255,0.42);}
+.footer-cities{display:flex;gap:8px;flex-wrap:wrap;}
+.footer-cities span:not(:last-child)::after{content:'\00B7';margin-left:8px;color:rgba(255,255,255,0.3);}
+@media(max-width:860px){.footer-grid{grid-template-columns:1fr;gap:38px;}.footer-bottom{flex-direction:column;text-align:center;justify-content:center;}}
+
+.fab{
+  position:fixed;right:20px;bottom:20px;z-index:900;display:inline-flex;align-items:center;gap:9px;
+  background:#25D366;color:#0b2b18;padding:14px 20px 14px 15px;border-radius:999px;
+  box-shadow:0 12px 28px rgba(18,140,73,0.4);text-decoration:none;font-weight:600;font-size:0.88rem;
+  transition:transform 0.3s var(--ease-spring), box-shadow 0.3s var(--ease);
+}
+.fab:hover,.fab:focus-visible{transform:scale(1.05) translateY(-2px);box-shadow:0 16px 34px rgba(18,140,73,0.48);}
+.fab .icon{width:22px;height:22px;stroke-width:0;fill:currentColor;}
+.fab::before{content:'';position:absolute;inset:0;border-radius:999px;border:2px solid #25D366;animation:fabPulse 2.4s var(--ease) infinite;}
+.fab-text{white-space:nowrap;}
+@keyframes fabPulse{0%{transform:scale(1);opacity:0.55;}100%{transform:scale(1.35);opacity:0;}}
+@media(max-width:480px){.fab-text{display:none;}.fab{padding:15px;}}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+@media(max-width:900px){
+  .tier-detail-hero{grid-template-columns:1fr;}
+  .help-strip{flex-direction:column;align-items:flex-start;text-align:left;}
+  .note-card{flex-direction:column;}
+}
+@media(max-width:768px){
+  .navbar{padding:0 14px;height:66px;}
+  .menu-toggle{display:flex;z-index:2001;}
+  .nav-links{
+    position:fixed;right:-100%;top:0;height:100vh;width:min(78vw,300px);
+    background-color:var(--maroon-950);flex-direction:column;align-items:flex-start;
+    padding:90px 28px 28px;transition:right 0.4s var(--ease);z-index:2000;gap:6px;
+    overflow-y:auto;box-shadow:-10px 0 40px rgba(0,0,0,0.35);
+  }
+  .nav-links.active{right:0;}
+  .nav-links > li{width:100%;border-bottom:1px solid rgba(255,255,255,0.1);padding:14px 0;color:white;}
+  .nav-links li a.back-btn{border-color:rgba(255,255,255,0.35);width:100%;justify-content:center;}
+  .dropdown-panel{position:static;display:none;transform:none !important;opacity:1 !important;background:transparent;box-shadow:none;border:none;padding:10px 0 0 4px;width:100%;}
+  .dropdown-open .dropdown-panel{display:block;}
+  .dropdown-panel ul{grid-template-columns:1fr;}
+  .dropdown-panel li,.dropdown-panel a.contact-row{color:var(--blush);}
+  .menu-toggle.is-active .bar:nth-child(2){opacity:0;}
+  .menu-toggle.is-active .bar:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .menu-toggle.is-active .bar:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+  .logo{max-width:120px;padding-left:0;}
+  .logo img{height:56%;}
+}
+@media(max-width:380px){.logo{max-width:96px;}}
+
+</style>
 </head>
 <body>
 
-<nav class="navbar">
+<nav class="navbar" id="navbar">
     <div class="logo">
-        <a href="index.html" style="width: 100%; height: 100%;">
-            <img src="images/final logo.png" alt="Tharunam Logo">
-        </a>
+        <a href="index.html"><img src="images/final logo.png" alt="Tharunam Events"></a>
     </div>
+
+    <div class="menu-toggle" id="mobile-menu" role="button" aria-label="Toggle menu" aria-expanded="false" tabindex="0">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </div>
+
     <ul class="nav-links">
-        <li><a href="index.html">← Back to Home</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li id="locationMenu" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+            Location <span class="caret">&#9662;</span>
+            <div class="dropdown-panel">
+                <ul>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Chennai</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Coimbatore</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Erode</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Pollachi</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Madurai</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Trichy</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Salem</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Pondicherry</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Tirunelveli</li>
+                    <li><svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Tiruppur</li>
+                </ul>
+            </div>
+        </li>
+        <li id="contactMenu" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false">
+            Contact <span class="caret">&#9662;</span>
+            <div class="dropdown-panel">
+                <a class="contact-row" href="tel:+918778318394"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> +91 8778318394</a>
+                <a class="contact-row" href="mailto:tharunam2026@gmail.com"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg> tharunam2026@gmail.com</a>
+            </div>
+        </li>
+        <li><a href="index.html" class="back-btn">&larr; Back to Home</a></li>
     </ul>
 </nav>
 
-<div class="container">
-    <h1>Corporate Event Packages</h1>
-    
-    <div class="package-grid">
-        <div class="category-box silver">
-            <img src="cimg/cs.jpg" alt="Silver Corporate">
-            <div class="category-info">
-                <h2>School Events</h2>
-                <p>Fun Event</p>
-                <a href="c1.html" class="book-now">Book Now</a>
-            </div>
-        </div>
+<section class="page-hero">
+  <div class="breadcrumb reveal"><a href="index.html">Home</a> / Corporate Events</div>
+  <div class="hero-eyebrow reveal">Corporate Events</div>
+  <h1 class="reveal">Corporate events, produced with <em style="font-style:normal;color:var(--maroon-700);">precision and polish.</em></h1>
+  <p class="hero-lede reveal">From a school annual day to a college fest to a business launch, pick the format that matches your event — venue styling, hospitality, entertainment and coverage, coordinated from start to finish.</p>
+</section>
 
-        <div class="category-box gold">
-            <img src="cimg/ccc2.jpg" alt="Gold Corporate">
-            <div class="category-info">
-                <h2>College Events</h2>
-                <p>Stage decor, professional MC, high-quality audio, and photography coverage.</p>
-                <a href="c2.html" class="book-now">Book Now</a>
-            </div>
-        </div>
-
-        <div class="category-box platinum">
-            <img src="cimg/ccc.jpg" alt="Platinum Corporate">
-            <div class="category-info">
-                <h2>Grand Opening</h2>
-                <p>LED backdrop, multi-cam videography, lunch buffet, and branded corporate gifts.</p>
-                <a href="c3.html" class="book-now">Book Now</a>
-            </div>
-        </div>
-        </div>
-    </div>
+<div class="note-strip reveal">
+  <div class="note-card">
+    <svg class="icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg>
+    <p><strong>Every package includes on-ground event management</strong> — anchor and AV coordination, stage timing and crowd flow, alongside décor and hospitality. Tell us your event format when you enquire and we'll build the day around it.</p>
+  </div>
 </div>
 
-<footer style="background: #8d0809; color: white; text-align: center; padding: 20px; margin-top: 50px;">
-    © 2026 Tharunam Events. All Rights Reserved.
+<div class="tier-tab-bar reveal" role="tablist" aria-label="Corporate event categories">
+  <div class="tier-tab active" data-tab="school" role="tab" aria-selected="true" tabindex="0">School</div>
+  <div class="tier-tab" data-tab="college" role="tab" aria-selected="false" tabindex="0">College</div>
+  <div class="tier-tab" data-tab="grand" role="tab" aria-selected="false" tabindex="0">Business / Launch</div>
+</div>
+
+<!-- ============================================================ SCHOOL -->
+<section class="tier-panel active" data-tier="school" id="school">
+
+  <div class="tier-detail-hero">
+    <div class="img-wrap">
+      <img src="cimg/cs.jpg" alt="School event decor and staging">
+      <div class="tier-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 10v6"/></svg></div>
+    </div>
+    <div class="tier-detail-copy reveal">
+      <div class="tier-tagline">For Schools</div>
+      <h2>School Events</h2>
+      <div class="price">&#8377;9,999 Onwards</div>
+      <p class="intro">Celebrate memorable school occasions such as Annual Day, Teachers Day, Children's Day, cultural programs, and graduation events with professionally designed setups and exciting entertainment experiences.</p>
+      <ul class="include-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Annual Day Stage Setup</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>DJ Music &amp; Sound System</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Food &amp; Snack Stalls</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Shopping Stalls</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Kids Play Area</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Lighting &amp; Decoration</li>
+      </ul>
+      <button class="btn btn-primary" data-book-btn="School Events">Book Now
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-blocks">
+    <div class="detail-block reveal">
+      <h3>Gallery</h3>
+      <div class="gallery-scroll-container">
+        <div class="gallery-item"><img src="cimg/cs1.jpg" alt="School event gallery 1"></div>
+        <div class="gallery-item"><img src="cimg/cs2.jpg" alt="School event gallery 2"></div>
+        <div class="gallery-item"><img src="cimg/cs3.jpg" alt="School event gallery 3"></div>
+        <div class="gallery-item"><img src="images/bd5.jpg" alt="School event gallery 4"></div>
+        <div class="gallery-item"><img src="images/bd4.png" alt="School event gallery 5"></div>
+        <div class="gallery-item"><img src="cimg/cs4.jpg" alt="School event gallery 6"></div>
+        <div class="gallery-item"><img src="cimg/cs5.jpg" alt="School event gallery 7"></div>
+      </div>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Celebrity Appearance</h3>
+      <p>Make the school event even more memorable by inviting popular influencers, motivational speakers, local celebrities, or social media personalities. Their presence excites students and adds prestige to the celebration.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Venue Decoration</h3>
+      <p>Our venue decoration transforms the school campus into a vibrant celebration space using theme-based stage backdrops, balloon arches, LED lighting, entrance arches, and elegant draping that enhances the overall atmosphere of the event.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Food Service</h3>
+      <p>We organize hygienic food counters serving snacks, beverages, and refreshments for students, parents, and teachers. Popular items include popcorn, cotton candy, juice, noodles, sandwiches, and festival-style treats.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Fun Events &amp; Activities</h3>
+      <p>Students can enjoy exciting games, competitions, and activity zones such as lucky draws, mini contests, dance challenges, and interactive fun events that keep the celebration energetic.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Mascot Characters</h3>
+      <p>Colorful mascot characters such as cartoon figures, superheroes, and animated characters entertain children, interact with students, and create wonderful photo opportunities during the celebration.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>DJ &amp; Music System</h3>
+      <p>Our DJ system includes powerful speakers, microphones, stage lights, and music playlists suitable for cultural programs, dance performances, and celebration moments.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Live Stalls</h3>
+      <p>Live stalls like popcorn machines, cotton candy counters, ice cream carts, and chaat stalls create a festive carnival environment within the school campus and attract students throughout the event.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ COLLEGE -->
+<section class="tier-panel" data-tier="college" id="college">
+
+  <div class="tier-detail-hero">
+    <div class="img-wrap">
+      <img src="cimg/ccc2.jpg" alt="College event stage and crowd">
+      <div class="tier-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="M6 10.5V16c0 1.5 2.7 3.5 6 3.5s6-2 6-3.5v-5.5"/><path d="M22 8v7"/></svg></div>
+    </div>
+    <div class="tier-detail-copy reveal">
+      <div class="tier-tagline">For Colleges</div>
+      <h2>College Events</h2>
+      <div class="price">&#8377;9,999 Onwards</div>
+      <p class="intro">College events are some of the most energetic and memorable celebrations in student life. We specialize in organizing large-scale college events including cultural festivals, sports day celebrations, graduation ceremonies, and campus festivals with professional planning and creative execution — stunning stage designs, powerful sound systems, exciting entertainment, and premium arrangements that create a vibrant atmosphere for students and faculty.</p>
+      <ul class="include-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Cultural Fest Stage Setup</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Sports Day Event Management</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Graduation Ceremony Decoration</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>DJ &amp; Music Setup</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Food &amp; Beverage Stalls</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Professional Lighting &amp; Dance Floor</li>
+      </ul>
+      <button class="btn btn-primary" data-book-btn="College Events">Book Now
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-blocks">
+    <div class="detail-block reveal">
+      <h3>Gallery</h3>
+      <div class="gallery-scroll-container">
+        <div class="gallery-item"><img src="cimg/ccc1.jpg" alt="College event gallery 1"></div>
+        <div class="gallery-item"><img src="cimg/ccc2.jpg" alt="College event gallery 2"></div>
+        <div class="gallery-item"><img src="cimg/ccc3.jpg" alt="College event gallery 3"></div>
+        <div class="gallery-item"><img src="cimg/ccc4.jpg" alt="College event gallery 4"></div>
+        <div class="gallery-item"><img src="images/bd5.jpg" alt="College event gallery 5"></div>
+        <div class="gallery-item"><img src="images/bd4.png" alt="College event gallery 6"></div>
+        <div class="gallery-item"><img src="cimg/cs4.jpg" alt="College event gallery 7"></div>
+        <div class="gallery-item"><img src="cimg/cs5.jpg" alt="College event gallery 8"></div>
+      </div>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Chief Guest Appearance</h3>
+      <p>To make college celebrations more prestigious, we can arrange chief guests such as motivational speakers, industry professionals, successful alumni, or social influencers. Their presence inspires students and adds importance to the event.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>LED Backdrop Stage Setup</h3>
+      <p>Our LED backdrop stages create a modern and high-energy visual experience for cultural festivals, DJ nights, and graduation ceremonies. Dynamic LED screens display event themes, animations, logos, and live visuals that enhance the overall stage performance.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Drone Shoot Coverage</h3>
+      <p>Professional drone videography captures stunning aerial views of the entire college event including stage performances, crowd energy, and campus celebrations. These cinematic shots create memorable highlight videos for the institution.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Photography &amp; Videography</h3>
+      <p>Our professional photographers capture every moment of the event including stage performances, award ceremonies, student celebrations, and group photos. High-quality videos and photos help preserve the memories of the campus festival.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Food &amp; Live Stalls</h3>
+      <p>Live food stalls such as popcorn counters, juice bars, ice cream carts, chaat stalls, and snack counters can be arranged to create a carnival environment during college festivals. Students enjoy exploring these stalls while celebrating the event.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>DJ Night &amp; Music Setup</h3>
+      <p>Our DJ setups include powerful speakers, mixers, microphones, and dynamic lighting that create an electrifying party environment for college DJ nights, cultural celebrations, and after-party events.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Venue Decoration</h3>
+      <p>We transform college venues with grand entrance arches, stage decor, balloon installations, lighting arrangements, banners, and theme-based decorations that make the campus celebration visually stunning.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Fashion Show Ramp Setup</h3>
+      <p>For college cultural festivals and fashion events, we design professional fashion show ramp stages with stylish walkways, stage lighting, and background decor, allowing participants to showcase their talent with LED-lit runway glamour.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Laser Lights &amp; Smoke Effects</h3>
+      <p>To create a high-energy party atmosphere during DJ nights and stage performances, we provide advanced laser lighting systems, moving stage lights, and smoke machines for a concert-like environment.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Campus Carnival Zone</h3>
+      <p>The campus carnival zone brings a festival-like experience to college events with game stalls, fun activities, food counters, and interactive entertainment areas, making the event lively and memorable throughout.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ BUSINESS / GRAND OPENING -->
+<section class="tier-panel" data-tier="grand" id="grand">
+
+  <div class="tier-detail-hero">
+    <div class="img-wrap">
+      <img src="cimg/ccc.jpg" alt="Grand opening stage and branding">
+      <div class="tier-badge"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V9l6-4 6 4v12"/><path d="M9 21v-6h4v6"/><path d="M9 12h.01M13 12h.01M9 9h.01M13 9h.01"/></svg></div>
+    </div>
+    <div class="tier-detail-copy reveal">
+      <div class="tier-tagline">For Launches &amp; Meets</div>
+      <h2>Business Meets &amp; Grand Openings</h2>
+      <div class="price">&#8377;5,999 Onwards</div>
+      <p class="intro">Business meetings, launches and corporate gatherings are important events where professionals come together to discuss ideas, share knowledge, and build strong relationships. We specialize in organizing well-structured business meetups, conferences, and networking events — handling stage and conference setup, LED presentation screens, photography coverage, corporate catering, and guest management for a productive, comfortable experience.</p>
+      <ul class="include-list">
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Professional Stage &amp; Conference Setup</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>LED Screen Presentation System</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Photography &amp; Videography Coverage</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Buffet Catering &amp; Refreshments</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Corporate Branding &amp; Venue Decor</li>
+        <li><svg class="icon" viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Guest Registration &amp; Networking Lounge</li>
+      </ul>
+      <button class="btn btn-primary" data-book-btn="Business Meet / Grand Opening">Book Now
+        <svg class="icon" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="detail-blocks">
+    <div class="detail-block reveal">
+      <h3>Gallery</h3>
+      <div class="gallery-scroll-container">
+        <div class="gallery-item"><img src="cimg/co1.jpg" alt="Business event gallery 1"></div>
+        <div class="gallery-item"><img src="cimg/co2.jpg" alt="Business event gallery 2"></div>
+        <div class="gallery-item"><img src="cimg/co3.jpg" alt="Business event gallery 3"></div>
+        <div class="gallery-item"><img src="cimg/co4.jpg" alt="Business event gallery 4"></div>
+        <div class="gallery-item"><img src="cimg/co5.jpg" alt="Business event gallery 5"></div>
+        <div class="gallery-item"><img src="cimg/co6.jpg" alt="Business event gallery 6"></div>
+        <div class="gallery-item"><img src="cimg/co7.jpg" alt="Business event gallery 7"></div>
+        <div class="gallery-item"><img src="pubertyimg/pp2.jpg" alt="Business event gallery 8"></div>
+      </div>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Stage &amp; Conference Setup</h3>
+      <p>For business meetings and corporate gatherings, we design professional stage and conference setups including branded backdrops, podium stands, LED screens, and elegant lighting for a formal environment for speeches and panel discussions.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Buffet Catering</h3>
+      <p>Our buffet catering services provide a wide variety of refreshments, snacks, and meals for guests. From welcome drinks and tea breaks to full lunch or dinner buffets, guests feel comfortable and well served throughout the meeting.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Photography &amp; Videography</h3>
+      <p>Professional photographers capture important moments including keynote speeches, networking sessions, and award presentations. High-quality photos and videos can later be used for marketing and social media promotion.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Invitation &amp; Guest Management</h3>
+      <p>We assist businesses in designing professional invitations. Digital invitations, guest registration desks, welcome signage, and name badges can be arranged to ensure smooth guest entry and organized event management.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Branding &amp; Venue Decoration</h3>
+      <p>Corporate branding elements such as logo backdrops, standee banners, entrance displays, and elegant floral decorations help create a professional and visually impressive business event environment.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>LED Screen Presentation Setup</h3>
+      <p>We provide large LED screens or projector setups that allow speakers to display slides, videos, product demonstrations, and corporate presentations clearly for every attendee.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Motivational Speaker Arrangement</h3>
+      <p>We can arrange motivational speakers, industry experts, or successful entrepreneurs who deliver engaging talks that provide valuable insights and inspiration to attendees.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Corporate Gift Hampers</h3>
+      <p>Guests and business partners can be presented with elegant corporate gift hampers including branded merchandise, souvenirs, or premium gift items as a thoughtful gesture that strengthens business relationships.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Coffee Networking Lounge</h3>
+      <p>A dedicated networking lounge area with comfortable seating and coffee stations allows guests to interact, discuss ideas, and build business connections in a relaxed environment.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Photo Booth with Company Branding</h3>
+      <p>A customized photo booth with the company logo or event theme backdrop creates a fun, engaging space for memorable pictures that can also boost social media visibility.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Live Streaming Setup</h3>
+      <p>For businesses that want to reach a wider audience, we provide live streaming services that broadcast the event online so remote participants, clients, and employees can watch in real time.</p>
+    </div>
+
+    <div class="detail-block reveal">
+      <h3>Thank You Cards &amp; Gift Kits</h3>
+      <p>At the end of the event, guests can be presented with thank you cards and corporate gift kits as a token of appreciation, leaving a positive and memorable impression.</p>
+    </div>
+  </div>
+</section>
+
+<div class="help-strip reveal">
+  <div>
+    <h3>Not sure which category fits?</h3>
+    <p>Tell us your event type, guest count and venue — we'll recommend a package.</p>
+  </div>
+  <div class="help-actions">
+    <a href="tel:+918778318394"><svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg> Call Us</a>
+    <a href="https://wa.me/918778318394" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg> WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+
+      <div class="footer-brand reveal">
+        <div class="logo-mark">
+          <img src="images/final logo.png" alt="Tharunam Events">
+        </div>
+        <p class="footer-tagline">Tamil Nadu's dedicated event planning studio. Delivering thoughtfully styled weddings, ceremonies and corporate events across South India.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg class="icon" viewBox="0 0 24 24"><path d="M14 9h3V6h-3a4 4 0 0 0-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2a1 1 0 0 1 1-1Z"/></svg></a>
+          <a href="mailto:tharunam2026@gmail.com" aria-label="Email"><svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg></a>
+          <a href="https://wa.me/918778318394" aria-label="WhatsApp" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="footer-col reveal">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Our Story</a></li>
+          <li><a href="marriage.html">Wedding Events</a></li>
+          <li><a href="corporatepackages.html">Corporate Events</a></li>
+          <li><a href="index.html#enquiry">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col reveal">
+        <h4>Contact</h4>
+        <a class="footer-contact-row" href="tel:+918778318394">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+          +91 8778318394
+        </a>
+        <a class="footer-contact-row" href="mailto:tharunam2026@gmail.com">
+          <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+          tharunam2026@gmail.com
+        </a>
+        <div class="footer-contact-row" style="margin-bottom:0;">
+          <svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          Coimbatore, Tamil Nadu, India
+        </div>
+        <a class="footer-whatsapp-btn" href="https://wa.me/918778318394" target="_blank" rel="noopener">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg>
+          WhatsApp Us
+        </a>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2026 Tharunam Events. All Rights Reserved.</div>
+      <div class="footer-cities">
+        <span>Chennai</span><span>Coimbatore</span><span>Madurai</span><span>Trichy</span><span>Salem</span>
+      </div>
+    </div>
+  </div>
 </footer>
+
+<a class="fab" href="https://wa.me/918778318394" target="_blank" rel="noopener" aria-label="Chat with Tharunam Events on WhatsApp">
+  <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12.04 2c-5.5 0-9.96 4.46-9.96 9.96 0 1.76.46 3.4 1.26 4.83L2 22l5.36-1.28a9.9 9.9 0 0 0 4.68 1.19h.01c5.5 0 9.96-4.46 9.96-9.96S17.54 2 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.34-.5.05-1.02.24-3.42-.71-2.9-1.15-4.76-4.12-4.9-4.31-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.1 1-2.39.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.42-.07.65.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.1.19-.15.31-.3.48-.14.17-.31.37-.44.5-.15.14-.3.3-.13.59.17.29.75 1.24 1.62 2.01 1.11.99 2.05 1.3 2.34 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.32Z"/></svg>
+  <span class="fab-text">Chat with Us</span>
+</a>
+
+<!-- ============================================================ SHARED BOOKING MODAL (one modal, all three tiers) -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Your Event</h2>
+    <p class="modal-tier-label" id="modalTierLabel">Corporate — School Events</p>
+
+    <form action="https://formspree.io/f/maqpeyej" method="POST">
+      <input type="hidden" name="event_type" value="Corporate">
+      <input type="hidden" name="package_type" id="modalPackageType" value="School Events">
+
+      <div class="form-group">
+        <label>Full Name *</label>
+        <input type="text" name="name" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number *</label>
+        <input type="tel" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label>Event Date *</label>
+        <input type="date" name="date" required>
+      </div>
+      <div class="form-group">
+        <label>School / College / Venue</label>
+        <input type="text" name="venue">
+      </div>
+      <div class="form-group">
+        <label>Event Details</label>
+        <textarea name="event_details" rows="4"></textarea>
+      </div>
+
+      <button type="submit" class="submit-btn">Send Enquiry</button>
+    </form>
+
+    <p class="modal-contact-note"><b>Contact Us:</b> +91 8778318394 &nbsp;|&nbsp; tharunam2026@gmail.com</p>
+  </div>
+</div>
+
+<!-- ============================================================ SHARED IMAGE VIEWER (one viewer, reads whichever tier is open) -->
+<div id="imageViewer" class="image-viewer">
+  <span class="close-viewer" onclick="closeViewer()">&times;</span>
+  <button class="nav-arrow left" onclick="prevImage()">&#10094;</button>
+  <img id="viewerImg" alt="">
+  <button class="nav-arrow right" onclick="nextImage()">&#10095;</button>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const navbar = document.getElementById('navbar');
+    const menuBtn = document.querySelector("#mobile-menu");
+    const navLinks = document.querySelector(".nav-links");
+    const locationMenu = document.getElementById('locationMenu');
+    const contactMenu = document.getElementById('contactMenu');
+
+    /* ---- nav shrink on scroll ---- */
+    function onScroll(){
+        navbar.classList.toggle('scrolled', window.scrollY > 12);
+    }
+    document.addEventListener('scroll', onScroll, {passive:true});
+    onScroll();
+
+    /* ---- dropdown open/close ---- */
+    function openDropdown(panel){ panel.classList.add('show'); }
+    function closeDropdown(panel){ panel.classList.remove('show'); }
+
+    function closeAllDropdowns(){
+        [locationMenu, contactMenu].forEach((el) => {
+            el.classList.remove('dropdown-open');
+            el.setAttribute('aria-expanded','false');
+            closeDropdown(el.querySelector('.dropdown-panel'));
+        });
+    }
+
+    function toggleMenu(menuEl, otherEl){
+        const willOpen = !menuEl.classList.contains('dropdown-open');
+        otherEl.classList.remove('dropdown-open');
+        otherEl.setAttribute('aria-expanded','false');
+        closeDropdown(otherEl.querySelector('.dropdown-panel'));
+
+        menuEl.classList.toggle('dropdown-open', willOpen);
+        menuEl.setAttribute('aria-expanded', String(willOpen));
+        const panel = menuEl.querySelector('.dropdown-panel');
+        if(willOpen){ requestAnimationFrame(()=>openDropdown(panel)); }
+        else{ closeDropdown(panel); }
+    }
+
+    function toggleDrawer(){
+        const isOpen = navLinks.classList.toggle("active");
+        menuBtn.classList.toggle("is-active", isOpen);
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+        if(!isOpen){ closeAllDropdowns(); }
+    }
+    menuBtn.addEventListener("click", (e) => { e.stopPropagation(); toggleDrawer(); });
+    menuBtn.addEventListener("keydown", (e) => {
+        if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toggleDrawer(); }
+    });
+
+    locationMenu.addEventListener("click", (e) => { e.stopPropagation(); toggleMenu(locationMenu, contactMenu); });
+    contactMenu.addEventListener("click", (e) => { e.stopPropagation(); toggleMenu(contactMenu, locationMenu); });
+    [locationMenu, contactMenu].forEach((el) => {
+        el.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); el.click(); }
+        });
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!navLinks.contains(e.target) && !menuBtn.contains(e.target)) {
+            navLinks.classList.remove("active");
+            menuBtn.classList.remove("is-active");
+            menuBtn.setAttribute('aria-expanded','false');
+            closeAllDropdowns();
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape'){
+            navLinks.classList.remove("active");
+            menuBtn.classList.remove("is-active");
+            menuBtn.setAttribute('aria-expanded','false');
+            closeAllDropdowns();
+        }
+    });
+
+    /* ---- scroll reveal ---- */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {threshold:0.15});
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    /* ---------------------------------------------------------
+       TIER TABS — the core of the merge: one switcher swaps
+       which <section class="tier-panel"> is visible, instead
+       of three separate HTML files (c1.html, c2.html, c3.html).
+    --------------------------------------------------------- */
+    const tabs = document.querySelectorAll('.tier-tab');
+    const panels = document.querySelectorAll('.tier-panel');
+
+    function activateTier(tier, updateHash){
+        tabs.forEach(t => {
+            const isActive = t.dataset.tab === tier;
+            t.classList.toggle('active', isActive);
+            t.setAttribute('aria-selected', String(isActive));
+        });
+        panels.forEach(p => p.classList.toggle('active', p.dataset.tier === tier));
+        if(updateHash !== false){
+            history.replaceState(null, '', '#' + tier);
+        }
+        // re-run reveal for the newly shown panel's elements
+        document.querySelectorAll('.tier-panel.active .reveal').forEach(el => el.classList.add('visible'));
+    }
+
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => activateTier(tab.dataset.tab));
+        tab.addEventListener('keydown', (e) => {
+            if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activateTier(tab.dataset.tab); }
+        });
+    });
+
+    // Open directly to a category via corporatepackages.html#college etc.
+    const validTiers = ['school','college','grand'];
+    const initialTier = validTiers.includes(location.hash.replace('#','')) ? location.hash.replace('#','') : 'school';
+    activateTier(initialTier, false);
+
+    /* ---------------------------------------------------------
+       SHARED BOOKING MODAL — one modal, category passed in per click
+    --------------------------------------------------------- */
+    const bookingModal = document.getElementById('bookingModal');
+    const modalTierLabel = document.getElementById('modalTierLabel');
+    const modalPackageType = document.getElementById('modalPackageType');
+
+    document.querySelectorAll('[data-book-btn]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tier = btn.dataset.bookBtn;
+            modalTierLabel.textContent = 'Corporate — ' + tier;
+            modalPackageType.value = tier;
+            bookingModal.style.display = 'block';
+        });
+    });
+
+    window.closeModal = function(){
+        bookingModal.style.display = 'none';
+    };
+
+    window.addEventListener('click', (e) => {
+        if(e.target === bookingModal){ bookingModal.style.display = 'none'; }
+    });
+
+    /* ---------------------------------------------------------
+       SHARED IMAGE VIEWER — builds its image list from whichever
+       tier panel is currently active, so one viewer serves all three.
+    --------------------------------------------------------- */
+    const viewer = document.getElementById('imageViewer');
+    const viewerImg = document.getElementById('viewerImg');
+    let currentImages = [];
+    let currentIndex = 0;
+
+    document.addEventListener('click', (e) => {
+        const item = e.target.closest('.tier-panel.active .gallery-item img');
+        if(!item) return;
+        currentImages = Array.from(document.querySelectorAll('.tier-panel.active .gallery-item img'));
+        currentIndex = currentImages.indexOf(item);
+        viewerImg.src = item.src;
+        viewerImg.alt = item.alt;
+        viewer.style.display = 'flex';
+    });
+
+    window.closeViewer = function(){ viewer.style.display = 'none'; };
+    window.nextImage = function(){
+        if(!currentImages.length) return;
+        currentIndex = (currentIndex + 1) % currentImages.length;
+        viewerImg.src = currentImages[currentIndex].src;
+    };
+    window.prevImage = function(){
+        if(!currentImages.length) return;
+        currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+        viewerImg.src = currentImages[currentIndex].src;
+    };
+
+    document.addEventListener('keydown', (e) => {
+        if(viewer.style.display === 'flex'){
+            if(e.key === 'ArrowRight'){ nextImage(); }
+            if(e.key === 'ArrowLeft'){ prevImage(); }
+            if(e.key === 'Escape'){ closeViewer(); }
+        }
+    });
+
+    let touchStartX = 0;
+    viewer.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+    viewer.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        if(touchStartX - endX > 50){ nextImage(); }
+        if(endX - touchStartX > 50){ prevImage(); }
+    });
+
+});
+</script>
 
 </body>
 </html>
