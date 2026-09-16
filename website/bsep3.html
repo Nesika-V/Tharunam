@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Cradle Ceremony - Tharunam</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* =========================================
+   TOKENS — identical to babyshowergold.html / annaprassana.html
+   ========================================= */
+:root{
+  --ink-950:#241019;
+  --ink-900:#33131f;
+  --ink-800:#47202f;
+  --cream:#FBF3EE;
+  --blush:#F3E0DA;
+  --maroon-700:#8d0809;
+  --maroon-600:#a5100f;
+  --marigold:#F2A93B;
+  --marigold-dark:#D9861F;
+  --ink:#2a1c1c;
+  --ink-soft:#6b5555;
+  --white:#ffffff;
+  --line:rgba(141,8,9,0.12);
+
+  --font-display:'Fraunces', serif;
+  --font-ui:'Inter', sans-serif;
+
+  --ease:cubic-bezier(.4,0,.2,1);
+  --ease-spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
+}
+
+body{
+  font-family:var(--font-ui);
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;}
+img{max-width:100%;display:block;}
+:focus-visible{outline:2px solid var(--marigold-dark);outline-offset:3px;border-radius:2px;}
+.icon{width:20px;height:20px;flex-shrink:0;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-stagger.visible > *{transition-delay:calc(var(--i,0) * 100ms);}
+
+/* =========================================
+   NAVBAR
+   ========================================= */
+.navbar{
+  background:var(--ink-950);
+  height:74px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,4vw,50px);position:sticky;top:0;z-index:1000;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06);
+}
+.navbar .brand{
+  font-family:var(--font-display);font-weight:600;font-size:1.15rem;color:var(--white);
+  letter-spacing:0.01em;
+}
+.back-btn{
+  display:inline-flex;align-items:center;gap:8px;color:var(--white);text-decoration:none;
+  border:1px solid rgba(255,255,255,0.3);padding:9px 20px;border-radius:25px;font-weight:500;font-size:0.88rem;
+  transition:background .3s var(--ease),border-color .3s var(--ease),transform .25s var(--ease-spring);
+}
+.back-btn:hover,.back-btn:focus-visible{background:var(--marigold);border-color:var(--marigold);color:var(--ink-950);transform:translateY(-2px);}
+
+/* =========================================
+   HERO
+   ========================================= */
+.hero-wrap{padding:clamp(20px,4vw,44px) clamp(16px,4vw,44px) 0;}
+.hero-section{
+  position:relative;overflow:hidden;
+  background:radial-gradient(120% 140% at 12% 0%, #52223a 0%, var(--ink-900) 46%, var(--ink-950) 100%);
+  border-radius:26px;
+  display:grid;grid-template-columns:1.05fr 0.95fr;gap:0;
+  color:var(--white);
+}
+.hero-section::before,
+.hero-section::after{
+  content:'';position:absolute;border-radius:50%;filter:blur(60px);opacity:0.35;pointer-events:none;
+}
+.hero-section::before{width:340px;height:340px;background:var(--marigold);top:-120px;right:8%;}
+.hero-section::after{width:260px;height:260px;background:var(--maroon-600);bottom:-100px;left:4%;opacity:0.4;}
+
+.hero-copy{padding:clamp(40px,5vw,64px) clamp(28px,4vw,48px) clamp(48px,6vw,64px);position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;width:fit-content;
+  font-size:0.72rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;
+  color:var(--marigold);background:rgba(242,169,59,0.12);border:1px solid rgba(242,169,59,0.3);
+  padding:7px 14px;border-radius:20px;margin-bottom:22px;
+}
+.hero-copy h1{
+  font-family:var(--font-display);font-weight:600;font-size:clamp(2.1rem,4.4vw,3.1rem);line-height:1.1;
+  letter-spacing:-0.01em;
+}
+.hero-copy h1 em{font-style:italic;color:var(--marigold);}
+.hero-price{
+  display:inline-flex;align-items:center;gap:10px;margin-top:22px;
+  font-family:var(--font-display);font-size:1.5rem;font-weight:600;color:var(--white);
+}
+.hero-price span{font-size:0.85rem;font-weight:400;font-family:var(--font-ui);color:rgba(255,255,255,0.6);}
+.hero-copy p.lede{margin-top:18px;color:rgba(255,255,255,0.72);font-size:0.98rem;max-width:52ch;}
+
+.hero-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px;}
+.hero-chip{
+  display:flex;align-items:center;gap:8px;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:9px 13px;
+  font-size:0.82rem;color:rgba(255,255,255,0.85);
+}
+.hero-chip .icon{width:15px;height:15px;color:var(--marigold);}
+
+.hero-cta{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;font-family:var(--font-ui);font-weight:600;font-size:0.9rem;
+  padding:14px 26px;border-radius:30px;cursor:pointer;text-decoration:none;border:1px solid transparent;
+  transition:transform .25s var(--ease-spring),box-shadow .3s var(--ease),background .3s var(--ease),color .3s var(--ease);
+}
+.btn:active{transform:scale(0.97);}
+.btn-marigold{background:var(--marigold);color:var(--ink-950);box-shadow:0 10px 24px rgba(242,169,59,0.28);}
+.btn-marigold:hover,.btn-marigold:focus-visible{background:#ffb84d;transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--white);border-color:rgba(255,255,255,0.35);}
+.btn-outline:hover,.btn-outline:focus-visible{background:rgba(255,255,255,0.1);transform:translateY(-2px);}
+
+.hero-visual{position:relative;z-index:2;padding:clamp(20px,3vw,32px) clamp(28px,4vw,48px) clamp(28px,4vw,40px) 0;display:flex;align-items:center;}
+.hero-visual-inner{position:relative;width:100%;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px rgba(20,4,8,0.4);}
+.hero-visual-inner img{width:100%;height:100%;min-height:340px;object-fit:cover;}
+
+.float-card{
+  position:absolute;background:var(--white);color:var(--ink);border-radius:14px;
+  box-shadow:0 16px 34px rgba(36,16,25,0.28);padding:14px 16px;display:flex;align-items:center;gap:11px;
+}
+.float-card .fc-icon{
+  width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;
+  background:var(--blush);color:var(--maroon-700);
+}
+.float-card .fc-icon .icon{width:19px;height:19px;}
+.float-card .fc-label{font-size:0.72rem;color:var(--ink-soft);}
+.float-card .fc-value{font-family:var(--font-display);font-weight:600;font-size:1.02rem;color:var(--ink-950);}
+
+.fc-rating{top:20px;left:-18px;}
+.fc-includes{bottom:20px;right:-14px;max-width:200px;}
+
+@media(max-width:1000px){
+  .hero-section{grid-template-columns:1fr;}
+  .hero-visual{padding:0 clamp(20px,4vw,36px) clamp(36px,5vw,44px);}
+  .fc-rating{left:16px;}
+  .fc-includes{right:16px;}
+}
+@media(max-width:560px){
+  .float-card{position:static;margin-top:14px;box-shadow:0 8px 18px rgba(36,16,25,0.18);}
+  .hero-visual-inner{margin-bottom:0;}
+}
+
+/* =========================================
+   STATS STRIP
+   ========================================= */
+.stats-wrap{max-width:1180px;margin:0 auto;padding:0 clamp(16px,4vw,44px);}
+.stats-strip{
+  margin-top:-34px;position:relative;z-index:5;background:var(--white);border-radius:18px;
+  box-shadow:0 18px 40px rgba(42,14,15,0.1);border:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(4,1fr);
+}
+.stat-item{padding:22px 18px;text-align:center;border-right:1px solid var(--line);}
+.stat-item:last-child{border-right:none;}
+.stat-item .icon{width:20px;height:20px;color:var(--marigold-dark);margin:0 auto 8px;}
+.stat-item .stat-num{font-family:var(--font-display);font-weight:600;font-size:1.5rem;color:var(--ink-950);}
+.stat-item .stat-label{font-size:0.78rem;color:var(--ink-soft);margin-top:2px;}
+@media(max-width:700px){.stats-strip{grid-template-columns:repeat(2,1fr);}.stat-item{border-bottom:1px solid var(--line);}.stat-item:nth-child(2n){border-right:none;}}
+
+/* =========================================
+   SECTION SHELL
+   ========================================= */
+.section{max-width:1180px;margin:0 auto;padding:clamp(60px,7vw,88px) clamp(16px,4vw,44px) 0;}
+.section-head{max-width:640px;margin-bottom:40px;}
+.section-eyebrow{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:var(--maroon-700);margin-bottom:10px;
+}
+.section-head h2{font-family:var(--font-display);font-weight:600;font-size:clamp(1.6rem,3vw,2.1rem);color:var(--ink-950);letter-spacing:-0.01em;}
+.section-head p{color:var(--ink-soft);margin-top:10px;font-size:0.98rem;}
+
+/* =========================================
+   FEATURE / DETAIL GRID
+   ========================================= */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.feature-card{
+  background:var(--white);border:1px solid var(--line);border-radius:16px;padding:26px;
+  transition:box-shadow .3s var(--ease),transform .3s var(--ease);
+}
+.feature-card:hover{box-shadow:0 20px 36px rgba(42,14,15,0.1);transform:translateY(-4px);}
+.feature-card .fi{
+  width:46px;height:46px;border-radius:12px;background:var(--blush);color:var(--maroon-700);
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.feature-card .fi .icon{width:22px;height:22px;}
+.feature-card h3{font-family:var(--font-display);font-weight:600;font-size:1.12rem;color:var(--ink-950);margin-bottom:9px;}
+.feature-card p{color:var(--ink-soft);font-size:0.9rem;}
+@media(max-width:900px){.feature-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.feature-grid{grid-template-columns:1fr;}}
+
+/* =========================================
+   PACKAGE INCLUDES (chip list)
+   ========================================= */
+.includes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.include-chip{
+  display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--line);
+  border-radius:12px;padding:14px 16px;font-size:0.88rem;color:var(--ink);font-weight:500;
+}
+.include-chip .icon{width:18px;height:18px;color:var(--maroon-700);flex-shrink:0;}
+@media(max-width:900px){.includes-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:560px){.includes-grid{grid-template-columns:1fr;}}
+
+/* =========================================
+   TIMELINE — garland thread, alternating cards
+   ========================================= */
+.timeline{position:relative;margin-top:10px;padding-left:0;}
+.timeline::before{
+  content:'';position:absolute;left:29px;top:6px;bottom:6px;width:2px;
+  background:repeating-linear-gradient(180deg,var(--marigold) 0 8px,transparent 8px 16px);
+}
+.timeline-item{position:relative;display:flex;gap:24px;padding:0 0 40px 0;}
+.timeline-item:last-child{padding-bottom:0;}
+.timeline-dot{
+  flex-shrink:0;width:58px;height:58px;border-radius:50%;
+  background:linear-gradient(145deg,var(--maroon-600),var(--maroon-900));
+  display:flex;align-items:center;justify-content:center;color:var(--white);
+  box-shadow:0 8px 18px rgba(42,14,15,0.25);border:3px solid var(--cream);position:relative;z-index:2;
+}
+.timeline-dot .icon{width:24px;height:24px;}
+.timeline-body{padding-top:8px;}
+.timeline-step{font-size:0.72rem;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--marigold-dark);}
+.timeline-body h3{font-family:var(--font-display);font-weight:600;font-size:1.14rem;color:var(--ink-950);margin-top:4px;}
+.timeline-body p{color:var(--ink-soft);font-size:0.9rem;margin-top:6px;max-width:56ch;}
+
+/* =========================================
+   GALLERY
+   ========================================= */
+.gallery-scroll-container{display:flex;overflow-x:auto;gap:18px;padding:6px 2px 14px;scroll-behavior:smooth;}
+.gallery-scroll-container::-webkit-scrollbar{height:8px;}
+.gallery-scroll-container::-webkit-scrollbar-track{background:var(--blush);border-radius:10px;}
+.gallery-scroll-container::-webkit-scrollbar-thumb{background:var(--maroon-700);border-radius:10px;}
+.gallery-item{flex:0 0 270px;height:190px;border-radius:14px;overflow:hidden;cursor:pointer;position:relative;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease);}
+.gallery-item:hover img{transform:scale(1.08);}
+
+.image-modal{display:none;position:fixed;z-index:3000;inset:0;background:rgba(20,6,10,0.92);justify-content:center;align-items:center;}
+.image-modal img{max-width:90%;max-height:85%;border-radius:12px;}
+.image-close{position:absolute;top:22px;right:36px;font-size:2.4rem;color:var(--white);cursor:pointer;line-height:1;}
+
+/* =========================================
+   BOOK CTA STRIP
+   ========================================= */
+.book-strip{
+  max-width:1180px;margin:clamp(60px,7vw,88px) auto 0;padding:clamp(16px,4vw,44px);
+}
+.book-strip-inner{
+  background:linear-gradient(120deg,var(--ink-950),var(--ink-900));color:var(--white);border-radius:22px;
+  padding:clamp(34px,5vw,54px);display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden;
+}
+.book-strip-inner::before{content:'';position:absolute;width:280px;height:280px;background:var(--marigold);opacity:0.18;filter:blur(70px);border-radius:50%;top:-100px;right:-40px;}
+.book-strip-inner h3{font-family:var(--font-display);font-weight:600;font-size:1.5rem;position:relative;z-index:1;}
+.book-strip-inner p{color:rgba(255,255,255,0.7);margin-top:6px;position:relative;z-index:1;}
+.book-strip-inner .btn{position:relative;z-index:1;}
+
+/* =========================================
+   BOOKING MODAL
+   ========================================= */
+.modal{display:none;position:fixed;z-index:2000;inset:0;background:rgba(36,16,25,0.6);}
+.modal-content{background:var(--white);margin:5% auto;padding:32px;border-radius:16px;width:90%;max-width:500px;position:relative;}
+.close-btn{position:absolute;right:20px;top:14px;font-size:1.8rem;cursor:pointer;color:var(--maroon-700);line-height:1;}
+.modal-content h2{font-family:var(--font-display);text-align:center;color:var(--maroon-700);margin-bottom:22px;font-weight:600;}
+.form-group{margin-bottom:15px;}
+.form-group label{display:block;font-weight:600;font-size:0.86rem;margin-bottom:6px;color:var(--ink);}
+.form-group input,.form-group textarea{
+  width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:8px;font-family:var(--font-ui);font-size:0.92rem;
+}
+.form-group input:focus,.form-group textarea:focus{outline:2px solid var(--marigold-dark);outline-offset:1px;}
+.submit-btn{width:100%;padding:13px;background:var(--maroon-700);color:var(--white);border:none;border-radius:8px;font-weight:700;cursor:pointer;font-family:var(--font-ui);transition:background .25s var(--ease);}
+.submit-btn:hover{background:var(--maroon-600);}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+footer{background:var(--ink-950);color:rgba(255,255,255,0.55);text-align:center;padding:26px 20px;margin-top:clamp(60px,7vw,88px);font-size:0.85rem;}
+footer strong{color:rgba(255,255,255,0.85);}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+  <div class="brand">Tharunam Events</div>
+  <a href="index.html" class="back-btn">&larr; Back to Packages</a>
+</nav>
+
+<div class="hero-wrap">
+  <section class="hero-section">
+    <div class="hero-copy">
+      <div class="hero-eyebrow reveal">
+        <svg class="icon" viewBox="0 0 24 24" style="width:13px;height:13px;"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg>
+        Cradle Ceremony
+      </div>
+      <h1 class="reveal">Welcome your little one, wrapped in <em>tradition and blessing.</em></h1>
+      <div class="hero-price reveal">₹8,999 <span>onwards</span></div>
+      <p class="lede reveal">Celebrate the beautiful moment of welcoming your newborn with a traditional cradle ceremony designed with elegance and warmth. Our thoughtfully crafted setup blends cultural rituals with artistic décor to create a joyful and meaningful celebration around the beautifully adorned cradle, where family gathers to bless the baby.</p>
+
+      <div class="hero-chips reveal-stagger reveal">
+        <div class="hero-chip" style="--i:0"><svg class="icon" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg>Decorated Traditional Cradle</div>
+        <div class="hero-chip" style="--i:1"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7l1.5-2h5L16 7"/></svg>Full Ritual Photography</div>
+        <div class="hero-chip" style="--i:2"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8Z"/><path d="M6 21c1-3 3-4 6-4s5 1 6 4"/></svg>Floral Stage Backdrop</div>
+      </div>
+
+      <div class="hero-cta reveal">
+        <a href="#book" class="btn btn-marigold" onclick="openModal();return false;">Book This Package</a>
+        <a href="#gallery" class="btn btn-outline">View Gallery</a>
+      </div>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-visual-inner">
+        <img src="epimage/cc.png" alt="Cradle ceremony decor and seating">
+        <div class="float-card fc-rating">
+          <div class="fc-icon"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m12 2 2.9 6.26 6.9.6-5.2 4.63 1.6 6.76L12 16.9l-6.2 3.35 1.6-6.76-5.2-4.63 6.9-.6L12 2Z"/></svg></div>
+          <div><div class="fc-label">Client Rating</div><div class="fc-value">4.9 / 5</div></div>
+        </div>
+        <div class="float-card fc-includes">
+          <div class="fc-icon"><svg class="icon" viewBox="0 0 24 24"><path d="M20 7h-9a2 2 0 0 0-2 2v9M20 7v9a2 2 0 0 1-2 2H9M20 7l-9 9M4 4l3 3M4 4v4M4 4h4"/></svg></div>
+          <div><div class="fc-label">Includes</div><div class="fc-value" style="font-size:0.85rem;">Digital Invite + Decor</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="stats-wrap">
+  <div class="stats-strip reveal">
+    <div class="stat-item">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+      <div class="stat-num">100+</div><div class="stat-label">Ceremonies Styled</div>
+    </div>
+    <div class="stat-item">
+      <svg class="icon" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="m12 2 2.9 6.26 6.9.6-5.2 4.63 1.6 6.76L12 16.9l-6.2 3.35 1.6-6.76-5.2-4.63 6.9-.6L12 2Z"/></svg>
+      <div class="stat-num">4.9</div><div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat-item">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M12 3c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8Z"/><path d="M6 21c1-3 3-4 6-4s5 1 6 4"/></svg>
+      <div class="stat-num">6</div><div class="stat-label">Decor Elements</div>
+    </div>
+    <div class="stat-item">
+      <svg class="icon" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg>
+      <div class="stat-num">1</div><div class="stat-label">Sacred Naming Ritual</div>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">What's Included</div>
+    <h2>Everything set, down to the last detail</h2>
+  </div>
+  <div class="includes-grid reveal-stagger reveal">
+    <div class="include-chip" style="--i:0"><svg class="icon" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg>Decorated Traditional Cradle</div>
+    <div class="include-chip" style="--i:1"><svg class="icon" viewBox="0 0 24 24"><path d="M12 3c0 4-3 5-3 8a3 3 0 0 0 6 0c0-3-3-4-3-8Z"/><path d="M6 21c1-3 3-4 6-4s5 1 6 4"/></svg>Floral Stage Backdrop</div>
+    <div class="include-chip" style="--i:2"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg>Naming Ritual Setup</div>
+    <div class="include-chip" style="--i:3"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-6 7 6v12"/></svg>Entrance Welcome Board</div>
+    <div class="include-chip" style="--i:4"><svg class="icon" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="9" rx="1"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Theme Color Decorations</div>
+    <div class="include-chip" style="--i:5"><svg class="icon" viewBox="0 0 24 24"><path d="M20 7h-9a2 2 0 0 0-2 2v9M20 7v9a2 2 0 0 1-2 2H9M20 7l-9 9M4 4l3 3M4 4v4M4 4h4"/></svg>Professional Lighting Setup</div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">The Experience</div>
+    <h2>Every part of the celebration, taken care of</h2>
+  </div>
+  <div class="feature-grid reveal-stagger reveal">
+    <div class="feature-card" style="--i:0">
+      <div class="fi"><svg class="icon" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+      <h3>The Grand Cradle Setup</h3>
+      <p>A beautifully decorated cradle designed with elegant drapes, soft fabrics and fresh floral garlands — the serene centerpiece where the baby is introduced to family and loved ones.</p>
+    </div>
+    <div class="feature-card" style="--i:1">
+      <div class="fi"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
+      <h3>Naming Ritual &amp; Decor</h3>
+      <p>A sacred ritual space with traditional décor, ritual plates, decorative lamps and floral arrangements, plus a personalized welcome board greeting guests for the day.</p>
+    </div>
+    <div class="feature-card" style="--i:2">
+      <div class="fi"><svg class="icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+      <h3>Traditional Music &amp; Atmosphere</h3>
+      <p>Soft instrumental music and elegant lighting set a calm, joyful mood, with brass lamps and floral accents completing a welcoming celebration space.</p>
+    </div>
+    <div class="feature-card" style="--i:3">
+      <div class="fi"><svg class="icon" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-2h5L16 7"/></svg></div>
+      <h3>Photography Coverage</h3>
+      <p>Professional photographers capture every heartfelt moment — the naming ritual, family blessings and candid smiles — preserved as high-definition keepsakes.</p>
+    </div>
+    <div class="feature-card" style="--i:4">
+      <div class="fi"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2c-1.5 2-2 3.5-2 5a2 2 0 0 0 4 0c0-1.5-.5-3-2-5Z"/><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M4 15h16"/></svg></div>
+      <h3>Cake Celebration</h3>
+      <p>A beautifully styled cake table adds a joyful celebration moment, with the design customizable to match your chosen theme and décor.</p>
+    </div>
+    <div class="feature-card" style="--i:5">
+      <div class="fi"><svg class="icon" viewBox="0 0 24 24"><path d="M20 7h-9a2 2 0 0 0-2 2v9M20 7v9a2 2 0 0 1-2 2H9M20 7l-9 9M4 4l3 3M4 4v4M4 4h4"/></svg></div>
+      <h3>Complimentary Inclusions</h3>
+      <p>A customized digital invitation and elegant decorative elements are included, adding a thoughtful, memorable touch to the celebration.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">The Ceremony Flow</div>
+    <h2>How your celebration unfolds</h2>
+    <p>A gentle rhythm from welcome to farewell, coordinated so the family can stay fully present.</p>
+  </div>
+  <div class="timeline reveal-stagger reveal">
+    <div class="timeline-item" style="--i:0">
+      <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M3 21h18M5 21V9l7-6 7 6v12"/></svg></div>
+      <div class="timeline-body">
+        <div class="timeline-step">Step 01</div>
+        <h3>Welcome &amp; Entrance</h3>
+        <p>Guests are greeted at the decorated welcome board as the floral stage backdrop sets the tone for the ceremony.</p>
+      </div>
+    </div>
+    <div class="timeline-item" style="--i:1">
+      <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M4 21V7l8-4 8 4v14"/><path d="M9 21v-6h6v6"/></svg></div>
+      <div class="timeline-body">
+        <div class="timeline-step">Step 02</div>
+        <h3>The Grand Cradle Setup</h3>
+        <p>The baby is gently placed in the beautifully adorned cradle, framed by drapes, fabrics and fresh floral garlands.</p>
+      </div>
+    </div>
+    <div class="timeline-item" style="--i:2">
+      <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2v20M2 12h20"/></svg></div>
+      <div class="timeline-body">
+        <div class="timeline-step">Step 03</div>
+        <h3>Naming Ceremony Ritual</h3>
+        <p>Family and elders gather at the ritual space to bless the baby and formally announce the chosen name.</p>
+      </div>
+    </div>
+    <div class="timeline-item" style="--i:3">
+      <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+      <div class="timeline-body">
+        <div class="timeline-step">Step 04</div>
+        <h3>Music, Blessings &amp; Photography</h3>
+        <p>Soft instrumental music plays as guests share blessings, while photographers capture every candid, heartfelt moment.</p>
+      </div>
+    </div>
+    <div class="timeline-item" style="--i:4">
+      <div class="timeline-dot"><svg class="icon" viewBox="0 0 24 24"><path d="M12 2c-1.5 2-2 3.5-2 5a2 2 0 0 0 4 0c0-1.5-.5-3-2-5Z"/><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M4 15h16"/></svg></div>
+      <div class="timeline-body">
+        <div class="timeline-step">Step 05</div>
+        <h3>Cake Celebration &amp; Farewell</h3>
+        <p>The celebration closes at the styled cake table, with digital invitation keepsakes shared as guests offer their final blessings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="gallery">
+  <div class="section-head reveal">
+    <div class="section-eyebrow">Gallery</div>
+    <h2>Moments from past celebrations</h2>
+  </div>
+  <div class="gallery-scroll-container reveal">
+    <div class="gallery-item"><img src="epimage/cc1.png" alt="Cradle ceremony decor 1"></div>
+    <div class="gallery-item"><img src="epimage/cc2.jpg" alt="Cradle ceremony decor 2"></div>
+    <div class="gallery-item"><img src="epimage/cc3.png" alt="Cradle ceremony decor 3"></div>
+    <div class="gallery-item"><img src="epimage/ff4.jpg" alt="Cradle ceremony family gathering"></div>
+    <div class="gallery-item"><img src="party/invitation.jpg" alt="Digital invitation card"></div>
+    <div class="gallery-item"><img src="pubertyimg/pd3.jpg" alt="Cradle ceremony decor detail"></div>
+  </div>
+</section>
+
+<div class="book-strip">
+  <div class="book-strip-inner reveal">
+    <div>
+      <h3>Ready to plan the celebration?</h3>
+      <p>Tell us your date and guest count — we'll take it from there.</p>
+    </div>
+    <button class="btn btn-marigold" onclick="openModal()">Book Now</button>
+  </div>
+</div>
+
+<footer>
+  <strong>Tharunam Events</strong> &middot; Cradle Ceremony Package &middot; &copy; 2026
+</footer>
+
+<!-- IMAGE MODAL -->
+<div id="imageModal" class="image-modal">
+  <span class="image-close">&times;</span>
+  <img id="modalImage">
+</div>
+
+<!-- BOOKING MODAL -->
+<div id="bookingModal" class="modal">
+  <div class="modal-content">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    <h2>Book Cradle Ceremony</h2>
+    <form action="https://formspree.io/f/maqpeyej" method="POST">
+      <input type="hidden" name="event_type" value="Cradle Ceremony">
+      <input type="hidden" name="package_type" value="Standard">
+      <div class="form-group"><label>Full Name *</label><input type="text" name="name" required></div>
+      <div class="form-group"><label>Phone Number *</label><input type="tel" name="phone" required></div>
+      <div class="form-group"><label>Event Date *</label><input type="date" name="date" required></div>
+      <div class="form-group"><label>Location</label><input type="text" name="location"></div>
+      <div class="form-group"><label>Event Details</label><textarea name="event_details" rows="4"></textarea></div>
+      <button type="submit" class="submit-btn">SEND ENQUIRY</button>
+    </form>
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function(){
+
+  /* scroll reveal */
+  const revealEls = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(el => revealObserver.observe(el));
+
+  /* Image Viewer */
+  let modal = document.getElementById("imageModal");
+  let modalImg = document.getElementById("modalImage");
+  let images = document.querySelectorAll(".gallery-item img");
+  let index = 0;
+
+  images.forEach((img,i)=>{
+    img.onclick = function(){
+      modal.style.display = "flex";
+      modalImg.src = this.src;
+      index = i;
+    };
+  });
+
+  document.querySelector(".image-close").onclick = function(){
+    modal.style.display = "none";
+  };
+
+  document.addEventListener("keydown", function(e){
+    if(modal.style.display === "flex"){
+      if(e.key === "ArrowRight"){ index = (index+1) % images.length; modalImg.src = images[index].src; }
+      if(e.key === "ArrowLeft"){ index = (index-1+images.length) % images.length; modalImg.src = images[index].src; }
+      if(e.key === "Escape"){ modal.style.display = "none"; }
+    }
+  });
+
+  modal.addEventListener('click', (e) => { if(e.target === modal){ modal.style.display = "none"; } });
+});
+
+/* Booking modal */
+function openModal(){
+  document.getElementById("bookingModal").style.display = "block";
+}
+function closeModal(){
+  document.getElementById("bookingModal").style.display = "none";
+}
+window.onclick = function(event){
+  if(event.target === document.getElementById("bookingModal")){
+    closeModal();
+  }
+};
+</script>
+
+</body>
+</html>

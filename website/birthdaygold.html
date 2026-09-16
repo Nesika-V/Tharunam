@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Birthday Details - Tharunam</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#fdf2f2;
+color:#333;
+line-height:1.6;
+}
+
+/* NAVBAR */
+
+.navbar{
+background:#8d0809;
+height:70px;
+display:flex;
+align-items:center;
+padding:0 50px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.back-btn{
+color:white;
+text-decoration:none;
+border:1px solid white;
+padding:6px 18px;
+border-radius:20px;
+transition:0.3s;
+}
+
+.back-btn:hover{
+background:white;
+color:#8d0809;
+}
+
+/* HERO */
+
+.hero-section{
+background:white;
+padding:40px 10%;
+display:grid;
+grid-template-columns:1.5fr 1fr;
+gap:30px;
+}
+
+.hero-img{
+width:100%;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.package-title h1{
+color:#816317;
+font-size:2.5rem;
+margin-bottom:10px;
+}
+
+.price-tag{
+font-size:1.5rem;
+color:#9F8000;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+/* CONTENT */
+
+.details-container{
+padding:40px 10%;
+}
+
+.section-box{
+background:white;
+padding:30px;
+border-radius:10px;
+margin-bottom:30px;
+border-left:5px solid #8d0809;
+box-shadow:0 2px 10px rgba(0,0,0,0.05);
+}
+
+.section-box h2{
+color:#8d0809;
+margin-bottom:15px;
+border-bottom:1px solid #eee;
+padding-bottom:10px;
+}
+
+/* GALLERY */
+
+.gallery-scroll-container{
+display:flex;
+overflow-x:auto;
+gap:20px;
+padding:10px 0 20px 0;
+scroll-behavior:smooth;
+}
+
+.gallery-scroll-container::-webkit-scrollbar{
+height:8px;
+}
+
+.gallery-scroll-container::-webkit-scrollbar-thumb{
+background:#8d0809;
+border-radius:10px;
+}
+
+.gallery-item{
+flex:0 0 280px;
+height:200px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 8px rgba(0,0,0,0.1);
+transition:0.3s;
+}
+
+.gallery-item:hover{
+transform:scale(1.05);
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+cursor:pointer;
+}
+
+/* FULLSCREEN IMAGE VIEWER */
+
+.image-viewer{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+z-index:5000;
+justify-content:center;
+align-items:center;
+}
+
+.image-viewer img{
+max-width:90%;
+max-height:90%;
+border-radius:10px;
+transform:scale(0.8);
+animation:zoomIn 0.3s forwards;
+}
+
+@keyframes zoomIn{
+to{transform:scale(1);}
+}
+
+.close-viewer{
+position:absolute;
+top:30px;
+right:40px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+.nav-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:55px;
+color:white;
+cursor:pointer;
+padding:10px;
+}
+
+.nav-arrow.left{left:30px;}
+.nav-arrow.right{right:30px;}
+
+/* BOOK BUTTON */
+
+.book-btn{
+display:block;
+width:300px;
+margin:40px auto;
+padding:15px;
+background:#8d0809;
+color:white;
+text-align:center;
+font-size:1.2rem;
+font-weight:bold;
+border:none;
+border-radius:6px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.book-btn:hover{
+background:#b10a0b;
+}
+
+/* MODAL */
+
+.modal{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+overflow-y:auto;
+}
+
+.modal-content{
+background:white;
+margin:5% auto;
+padding:30px;
+border-radius:10px;
+width:90%;
+max-width:500px;
+position:relative;
+}
+
+.close-btn{
+position:absolute;
+right:20px;
+top:10px;
+font-size:28px;
+cursor:pointer;
+color:#8d0809;
+}
+
+/* FORM */
+
+.form-group{
+margin-bottom:15px;
+display:flex;
+flex-direction:column;
+}
+
+.form-group label{
+margin-bottom:5px;
+font-weight:bold;
+}
+
+.form-group input,
+.form-group textarea{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.submit-btn{
+width:100%;
+padding:12px;
+background:#d42427;
+color:white;
+border:none;
+border-radius:5px;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.submit-btn:hover{
+background:#b10a0b;
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+.hero-section{
+grid-template-columns:1fr;
+}
+
+.details-container{
+padding:30px 20px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<a href="birthday.html" class="back-btn">← Back to Packages</a>
+</nav>
+
+<section class="hero-section">
+
+<div>
+<img src="images/birthday gold.png" alt="Gold Decor" class="hero-img">
+</div>
+
+<div class="package-title">
+
+<h1>Gold Birthday Package</h1>
+
+<p class="price-tag">₹15,000 Onwards</p>
+
+<p>
+Our Gold Birthday Package offers a radiant, all-inclusive celebration designed to shine. 
+This premium setup features a customized backdrop with lighting system and custom photo polaroids, 
+all tailored to your specific color palette.
+</p>
+
+<p>Customized Balloon Setup -1</p>
+<p>1.5–2kg Customized Cake -1</p>
+<p>15 Polaroid Photos -1</p>
+<p>Customized Name Tag -1</p>
+<p>Happy Birthday Hangings -1</p>
+<p>Bouquet (Complementary) -1</p>
+<p>Thank-You Cards (Complementary) -10</p>
+
+</div>
+
+</section>
+
+<div class="details-container">
+
+<div class="section-box">
+
+<h2>Gallery</h2>
+
+<div class="gallery-scroll-container">
+
+<div class="gallery-item">
+<img src="images/bg1.png" onclick="openViewer(0)">
+</div>
+
+<div class="gallery-item">
+<img src="images/bg2.png" onclick="openViewer(1)">
+</div>
+
+<div class="gallery-item">
+<img src="epimage/tqcard.jpeg" onclick="openViewer(2)">
+</div>
+
+<div class="gallery-item">
+<img src="epimage/boquet.jpg" onclick="openViewer(3)">
+</div>
+
+<div class="gallery-item">
+<img src="epimage/polaroid.jpg" onclick="openViewer(4)">
+</div>
+
+<div class="gallery-item">
+<img src="images/bg3.png" onclick="openViewer(5)">
+</div>
+
+</div>
+
+</div>
+
+<div class="section-box">
+<h2>Decor Details</h2>
+<p>
+Step into a celebration space designed to impress. Our Gold package features a stunning aluminum foil backdrop that adds a rich and vibrant shine to the venue. The setup is beautifully enhanced with a sophisticated lighting arrangement and delicate fairy lights that create a warm, elegant glow. Every detail is thoughtfully arranged to provide a luxurious ambiance and a picture-perfect backdrop for unforgettable memories.
+</p>
+</div>
+
+<div class="section-box">
+<h2>Cake Details</h2>
+<p>
+Indulge in a grand centerpiece for your celebration with our premium 1.5kg to 2kg designer cake. Each cake is freshly prepared with high-quality ingredients and crafted to match your chosen theme. You can fully customize the flavor, design, and decoration to suit your special occasion. From elegant finishes to personalized messages, every cake is created to make your celebration truly delightful.
+</p>
+</div>
+
+<div class="section-box">
+<h2>Complementary Services</h2>
+<p>
+To elevate your celebration experience, our Gold package includes thoughtful complimentary additions. A beautifully arranged bouquet of fresh seasonal flowers adds a touch of elegance and charm to the event. Along with this, ten personalized thank-you cards are provided to express your gratitude to guests. These small yet meaningful details help create a warm and memorable celebration.
+</p>
+</div>
+
+<button class="book-btn" onclick="openModal()">BOOK NOW</button>
+
+</div>
+
+<!-- IMAGE VIEWER -->
+
+<div id="imageViewer" class="image-viewer">
+
+<span class="close-viewer" onclick="closeViewer()">×</span>
+
+<img id="viewerImg">
+
+<div class="nav-arrow left" onclick="prevImage()">❮</div>
+<div class="nav-arrow right" onclick="nextImage()">❯</div>
+
+</div>
+
+<div id="bookingModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close-btn" onclick="closeModal()">&times;</span>
+
+<h2 style="color:#8d0809;text-align:center;margin-bottom:20px;">
+Book Your Event
+</h2>
+
+<form action="https://formspree.io/f/maqpeyej" method="POST">
+
+<input type="hidden" name="event_type" value="Birthday">
+<input type="hidden" name="package_type" value="Gold">
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="name" required>
+</div>
+
+<div class="form-group">
+<label>Phone Number *</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="form-group">
+<label>Event Date *</label>
+<input type="date" name="date" required>
+</div>
+
+<div class="form-group">
+<label>Location</label>
+<input type="text" name="location">
+</div>
+
+<div class="form-group">
+<label>Event Details *</label>
+<textarea name="event_details" rows="4"></textarea>
+</div>
+
+<button type="submit" class="submit-btn">SEND ENQUIRY</button>
+
+</form>
+
+<hr style="margin:20px 0;">
+
+<p style="text-align:center;font-size:0.9rem;">
+<b>Contact Us:</b> +91 8778318394 | mail@tharunam2026@gmail.com
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+function openModal(){
+document.getElementById('bookingModal').style.display='block';
+}
+
+function closeModal(){
+document.getElementById('bookingModal').style.display='none';
+}
+
+window.onclick=function(event){
+let modal=document.getElementById('bookingModal');
+if(event.target==modal){
+modal.style.display="none";
+}
+}
+
+/* IMAGE VIEWER SCRIPT */
+
+let images=[
+"images/bg1.png",
+"images/bg2.png",
+"epimage/tqcard.jpeg",
+"epimage/boquet.jpg",
+"epimage/polaroid.jpg",
+"images/bg3.png"
+];
+
+let currentIndex=0;
+let startX=0;
+
+function openViewer(index){
+currentIndex=index;
+document.getElementById("imageViewer").style.display="flex";
+document.getElementById("viewerImg").src=images[currentIndex];
+}
+
+function closeViewer(){
+document.getElementById("imageViewer").style.display="none";
+}
+
+function nextImage(){
+currentIndex++;
+if(currentIndex>=images.length){currentIndex=0;}
+document.getElementById("viewerImg").src=images[currentIndex];
+}
+
+function prevImage(){
+currentIndex--;
+if(currentIndex<0){currentIndex=images.length-1;}
+document.getElementById("viewerImg").src=images[currentIndex];
+}
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("imageViewer").style.display==="flex"){
+
+if(e.key==="ArrowRight"){nextImage();}
+if(e.key==="ArrowLeft"){prevImage();}
+if(e.key==="Escape"){closeViewer();}
+
+}
+
+});
+
+/* SWIPE SUPPORT */
+
+const viewer=document.getElementById("imageViewer");
+
+viewer.addEventListener("touchstart",function(e){
+startX=e.changedTouches[0].screenX;
+});
+
+viewer.addEventListener("touchend",function(e){
+
+let endX=e.changedTouches[0].screenX;
+
+if(startX-endX>50){nextImage();}
+if(endX-startX>50){prevImage();}
+
+});
+
+</script>
+
+</body>
+</html>

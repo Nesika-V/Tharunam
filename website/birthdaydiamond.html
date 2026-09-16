@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>Diamond Birthday Package - Tharunam</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:#fdf2f2;
+color:#333;
+line-height:1.6;
+}
+
+/* Navbar */
+
+.navbar{
+background:#8d0809;
+height:70px;
+display:flex;
+align-items:center;
+padding:0 50px;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.back-btn{
+color:white;
+text-decoration:none;
+border:1px solid white;
+padding:6px 18px;
+border-radius:25px;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:white;
+color:#8d0809;
+}
+
+/* Hero */
+
+.hero-section{
+background:white;
+padding:40px 10%;
+display:grid;
+grid-template-columns:1.5fr 1fr;
+gap:40px;
+}
+
+.hero-img{
+width:100%;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.package-title h1{
+color:#8d0809;
+font-size:2.6rem;
+margin-bottom:10px;
+}
+
+.price-tag{
+font-size:1.6rem;
+color:#444;
+font-weight:bold;
+margin-bottom:20px;
+}
+
+.package-title p{
+margin-bottom:8px;
+}
+
+/* Sections */
+
+.details-container{
+padding:40px 10%;
+}
+
+.section-box{
+background:white;
+padding:30px;
+border-radius:10px;
+margin-bottom:30px;
+border-left:5px solid #8d0809;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.section-box h2{
+color:#8d0809;
+margin-bottom:15px;
+border-bottom:1px solid #eee;
+padding-bottom:10px;
+}
+
+/* Gallery */
+
+.gallery-scroll-container{
+display:flex;
+overflow-x:auto;
+gap:20px;
+padding:10px 0 20px;
+scroll-behavior:smooth;
+}
+
+.gallery-item{
+flex:0 0 280px;
+height:200px;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+cursor:pointer;
+}
+
+.gallery-item img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* Book Button */
+
+.book-btn{
+display:block;
+width:320px;
+margin:40px auto;
+padding:15px;
+background:#8d0809;
+color:white;
+text-align:center;
+font-size:1.2rem;
+font-weight:bold;
+border:none;
+border-radius:6px;
+cursor:pointer;
+}
+
+/* Modal */
+
+.modal{
+display:none;
+position:fixed;
+z-index:2000;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.7);
+}
+
+.modal-content{
+background:white;
+margin:6% auto;
+padding:30px;
+border-radius:10px;
+width:90%;
+max-width:500px;
+position:relative;
+}
+
+.close-btn{
+position:absolute;
+right:20px;
+top:10px;
+font-size:28px;
+cursor:pointer;
+color:#8d0809;
+}
+
+/* Form */
+
+.form-group{
+margin-bottom:15px;
+display:flex;
+flex-direction:column;
+}
+
+.form-group label{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.form-group input,
+.form-group textarea{
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
+
+.submit-btn{
+width:100%;
+padding:12px;
+background:#d42427;
+color:white;
+border:none;
+border-radius:5px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* Full Screen Viewer */
+
+.image-viewer{
+display:none;
+position:fixed;
+z-index:3000;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.95);
+align-items:center;
+justify-content:center;
+}
+
+.image-viewer img{
+max-width:90%;
+max-height:85%;
+border-radius:10px;
+animation:zoomIn .3s ease;
+}
+
+@keyframes zoomIn{
+from{transform:scale(.7);}
+to{transform:scale(1);}
+}
+
+.close-viewer{
+position:absolute;
+top:20px;
+right:30px;
+font-size:40px;
+color:white;
+cursor:pointer;
+}
+
+.nav-btn{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+font-size:40px;
+background:none;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+.prev{left:30px;}
+.next{right:30px;}
+
+@media(max-width:768px){
+
+.hero-section{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<nav class="navbar">
+<a href="birthday.html" class="back-btn">← Back to Packages</a>
+</nav>
+
+<section class="hero-section">
+
+<div>
+<img src="images/birthdaydiamound.png" class="hero-img">
+</div>
+
+<div class="package-title">
+
+<h1>Diamond Birthday Package</h1>
+
+<p class="price-tag">₹60,000 Onwards</p>
+
+<p>
+Celebrate your special day with the ultimate luxury experience through our Diamond Birthday Package. Designed for grand celebrations, this premium setup blends elegant décor, professional photography, and personalized elements to create a visually stunning celebration. Every detail is crafted with sophistication to deliver unforgettable moments for you and your guests. With exclusive complimentary services and high-end decorations, your birthday becomes a truly remarkable event.
+</p>
+
+<p>Luxury Customized Theme Backdrop - 1</p>
+<p>+5kg Premium Cake - 1</p>
+<p>Professional Photographer & Event Coverage - 1</p>
+<p>Mascot</p>
+<p>DJ Party Area</p>
+<p>Premium Catering 50+</p>
+<p>Premium Flower Bouquet - 1</p>
+<p>20 Polaroid Photos - 1</p>
+<p>+20 Personalized Thank-You Cards </p>
+<p>HD Video Invitation (Complementary)</p>
+
+
+</div>
+
+</section>
+
+<div class="details-container">
+
+<div class="section-box">
+
+<h2>Diamond Gallery</h2>
+
+<div class="gallery-scroll-container">
+
+<div class="gallery-item"><img src="images/bd1.png"></div>
+<div class="gallery-item"><img src="images/bd2.png"></div>
+<div class="gallery-item"><img src="images/bd3.png"></div>
+<div class="gallery-item"><img src="images/bd4.png"></div>
+<div class="gallery-item"><img src="images/bd5.jpg"></div>
+<div class="gallery-item"><img src="epimage/polaroid.jpg"></div>
+<div class="gallery-item"><img src="pubertyimg/pd2.jpg"></div>
+<div class="gallery-item"><img src="epimage/tqcard.jpeg"></div>
+<div class="gallery-item"><img src="epimage/photographer.jpg"></div>
+<div class="gallery-item"><img src="epimage/Birthday  board.jpg"></div>
+
+</div>
+
+</div>
+
+<div class="section-box">
+
+<h2>Decoration Experience</h2>
+
+<p>
+Our Diamond setup features a grand multi-layer luxury backdrop enhanced with premium balloon styling, LED focus lighting, and elegant stage arrangements that transform your venue into a spectacular celebration space.
+</p>
+
+</div>
+
+<div class="section-box">
+
+<h2>Cake & Celebration Highlights</h2>
+
+<p>
+A premium 3kg designer cake crafted by professional bakers serves as the centerpiece of the celebration, customizable to match your theme, color palette, and personal style.
+</p>
+
+</div>
+
+<div class="section-box">
+
+<h2>Exclusive Complimentary Services</h2>
+
+<p>
+Enjoy complimentary HD video invitations, instant polaroid memories, premium bouquets, and personalized thank-you cards that make your event feel truly special and memorable.
+</p>
+
+</div>
+
+<button class="book-btn" onclick="openModal()">BOOK NOW</button>
+
+</div>
+
+
+<!-- Booking Modal -->
+
+<div id="bookingModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close-btn" onclick="closeModal()">×</span>
+
+<h2 style="color:#8d0809;text-align:center;margin-bottom:20px;">
+Book Your Diamond Event
+</h2>
+
+<form action="https://formspree.io/f/maqpeyej" method="POST">
+
+<input type="hidden" name="event_type" value="Birthday">
+<input type="hidden" name="package_type" value="Diamond">
+
+<div class="form-group">
+<label>Full Name *</label>
+<input type="text" name="name" required>
+</div>
+
+<div class="form-group">
+<label>Phone Number *</label>
+<input type="tel" name="phone" required>
+</div>
+
+<div class="form-group">
+<label>Event Date *</label>
+<input type="date" name="date" required>
+</div>
+
+<div class="form-group">
+<label>Location</label>
+<input type="text" name="location">
+</div>
+
+<div class="form-group">
+<label>Event Details</label>
+<textarea name="event_details" rows="4"></textarea>
+</div>
+
+<button type="submit" class="submit-btn">SEND ENQUIRY</button>
+
+</form>
+
+<hr style="margin:20px 0">
+
+<p style="text-align:center;font-size:.9rem">
+<b>Contact Us:</b> +91 8778318394 | mail@tharunam2026@gmail.com
+</p>
+
+</div>
+</div>
+
+
+<!-- Full Screen Viewer -->
+
+<div id="imageViewer" class="image-viewer">
+
+<span class="close-viewer" onclick="closeViewer()">×</span>
+
+<img id="viewerImage">
+
+<button class="nav-btn prev" onclick="prevImage()">❮</button>
+<button class="nav-btn next" onclick="nextImage()">❯</button>
+
+</div>
+
+
+<script>
+
+let images=document.querySelectorAll('.gallery-item img');
+let currentIndex=0;
+
+images.forEach((img,index)=>{
+
+img.addEventListener("click",()=>{
+
+document.getElementById("imageViewer").style.display="flex";
+document.getElementById("viewerImage").src=img.src;
+currentIndex=index;
+
+});
+
+});
+
+function closeViewer(){
+document.getElementById("imageViewer").style.display="none";
+}
+
+function nextImage(){
+
+currentIndex++;
+
+if(currentIndex>=images.length){
+currentIndex=0;
+}
+
+document.getElementById("viewerImage").src=images[currentIndex].src;
+
+}
+
+function prevImage(){
+
+currentIndex--;
+
+if(currentIndex<0){
+currentIndex=images.length-1;
+}
+
+document.getElementById("viewerImage").src=images[currentIndex].src;
+
+}
+
+/* Keyboard navigation */
+
+document.addEventListener("keydown",function(e){
+
+if(document.getElementById("imageViewer").style.display==="flex"){
+
+if(e.key==="ArrowRight"){nextImage();}
+if(e.key==="ArrowLeft"){prevImage();}
+if(e.key==="Escape"){closeViewer();}
+
+}
+
+});
+
+/* Mobile Swipe */
+
+let startX=0;
+
+document.getElementById("imageViewer").addEventListener("touchstart",function(e){
+
+startX=e.touches[0].clientX;
+
+});
+
+document.getElementById("imageViewer").addEventListener("touchend",function(e){
+
+let endX=e.changedTouches[0].clientX;
+
+if(startX-endX>50){nextImage();}
+if(endX-startX>50){prevImage();}
+
+});
+
+/* Booking Modal */
+
+function openModal(){
+document.getElementById('bookingModal').style.display='block';
+}
+
+function closeModal(){
+document.getElementById('bookingModal').style.display='none';
+}
+
+window.onclick=function(event){
+
+let modal=document.getElementById('bookingModal');
+
+if(event.target==modal){
+modal.style.display="none";
+}
+
+}
+
+</script>
+
+</body>
+</html>
